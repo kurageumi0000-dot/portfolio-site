@@ -1,5 +1,6 @@
 import { createClient } from "microcms-js-sdk";
 import { Work } from "@/types/work";
+import { SNSLink } from "@/types/snsLink";
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
     throw new Error("MICROCMS_SERVICE_DOMAIN is required");
@@ -37,5 +38,18 @@ export const getWorkDetail = async (id: string): Promise<Work | undefined> => {
     } catch (error) {
         console.error(`Failed to fetch work detail for id ${id}:`, error);
         return undefined;
+    }
+};
+
+export const getSNSLinks = async (): Promise<SNSLink[]> => {
+    try {
+        const data = await client.get({
+            endpoint: "sns_links",
+            queries: { orders: "publishedAt" },
+        });
+        return data.contents;
+    } catch (error) {
+        console.error("Failed to fetch SNS links:", error);
+        return [];
     }
 };

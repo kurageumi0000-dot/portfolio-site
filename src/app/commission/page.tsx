@@ -46,7 +46,7 @@ export default async function CommissionPage() {
                 prose-p:text-gray-400 prose-p:leading-relaxed
                 prose-li:text-gray-300 prose-strong:text-white
                 prose-hr:border-white/10"
-                                dangerouslySetInnerHTML={{ __html: section.content }}
+                                dangerouslySetInnerHTML={{ __html: section.content || "" }}
                             />
                         </div>
                     </section>

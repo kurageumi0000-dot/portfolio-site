@@ -1,6 +1,7 @@
 import { createClient } from "microcms-js-sdk";
 import { Work } from "@/types/work";
 import { SNSLink } from "@/types/snsLink";
+import { Commission } from "@/types/commission";
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
     throw new Error("MICROCMS_SERVICE_DOMAIN is required");
@@ -54,5 +55,20 @@ export const getLinks = async (): Promise<SNSLink[]> => {
     } catch (error) {
         console.error("Failed to fetch links:", error);
         return [];
+    }
+};
+
+/**
+ * Fetch commission info from microCMS 'commission' endpoint (Object type)
+ */
+export const getCommission = async (): Promise<Commission | undefined> => {
+    try {
+        const data = await client.get({
+            endpoint: "commission",
+        });
+        return data;
+    } catch (error) {
+        console.error("Failed to fetch commission info:", error);
+        return undefined;
     }
 };

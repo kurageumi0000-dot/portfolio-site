@@ -17,8 +17,33 @@ const notoJp = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-    title: "PORTFOLIO | Illustrator",
-    description: "Illustrator's professional portfolio site",
+    metadataBase: new URL("https://portfolio-site-alpha-gilt.vercel.app/"),
+    title: {
+        default: "海音くらげ | Portfolio",
+        template: "%s | 海音くらげ",
+    },
+    description: "デジタルイラストレーションとコンセプトアートを中心とした制作実績。",
+    openGraph: {
+        title: "海音くらげ | Portfolio",
+        description: "デジタルイラストレーションとコンセプトアートを中心とした制作実績。",
+        url: "./",
+        siteName: "海音くらげ | Portfolio",
+        images: [
+            {
+                url: "/ogp.jpg",
+                width: 1200,
+                height: 630,
+            },
+        ],
+        locale: "ja_JP",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "海音くらげ | Portfolio",
+        description: "デジタルイラストレーションとコンセプトアートを中心とした制作実績。",
+        images: ["/ogp.jpg"],
+    },
 };
 
 export default function RootLayout({

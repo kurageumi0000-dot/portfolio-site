@@ -41,15 +41,18 @@ export const getWorkDetail = async (id: string): Promise<Work | undefined> => {
     }
 };
 
-export const getSNSLinks = async (): Promise<SNSLink[]> => {
+/**
+ * Fetch links from microCMS 'links' endpoint
+ */
+export const getLinks = async (): Promise<SNSLink[]> => {
     try {
         const data = await client.get({
-            endpoint: "sns_links",
+            endpoint: "links",
             queries: { orders: "publishedAt" },
         });
         return data.contents;
     } catch (error) {
-        console.error("Failed to fetch SNS links:", error);
+        console.error("Failed to fetch links:", error);
         return [];
     }
 };

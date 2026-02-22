@@ -1,41 +1,41 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getSNSLinks } from "@/libs/microcms";
+import { getLinks } from "@/libs/microcms";
 
 export default async function LinksPage() {
-    const links = await getSNSLinks();
+    const links = await getLinks();
 
     return (
-        <div className="min-h-screen bg-gray-950 text-white selection:bg-white selection:text-gray-900">
-            <div className="container mx-auto px-6 py-20 max-w-xl flex flex-col items-center">
+        <div className="min-h-screen bg-gray-950 text-white selection:bg-white selection:text-gray-900 font-sans">
+            <div className="container mx-auto px-6 py-16 max-w-xl flex flex-col min-h-screen items-center">
 
                 {/* Profile Section */}
-                <div className="flex flex-col items-center mb-12 text-center">
-                    <div className="relative w-24 h-24 mb-6 rounded-full overflow-hidden border-2 border-white/20 p-1 bg-gradient-to-tr from-gray-800 to-gray-900 shadow-xl">
-                        <div className="relative w-full h-full rounded-full overflow-hidden bg-gray-800">
-                            {/* Fallback pattern if no image is available */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
-                                <span className="text-3xl font-bold tracking-tighter text-white/20 text-center px-4 leading-[0.8]">
-                                    PORT FOLIO
-                                </span>
-                            </div>
-                            {/* If you have a specific icon or friend icon, replace this placeholder */}
-                            {/* <Image 
-                src="/path-to-icon.jpg" 
-                alt="Profile Icon" 
-                fill 
-                className="object-cover"
-              /> */}
+                <div className="flex flex-col items-center mb-12 text-center pt-8">
+                    <div className="relative w-28 h-28 mb-6 rounded-full overflow-hidden border-4 border-white/5 shadow-2xl ring-1 ring-white/10">
+                        <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-950 flex items-center justify-center">
+                            <span className="text-4xl font-black tracking-tighter text-white/10 select-none">
+                                ICON
+                            </span>
                         </div>
+                        {/* 
+            プロフィール画像を設定する場合（例: /public/profile.jpg がある場合）
+            <Image 
+              src="/profile.jpg" 
+              alt="Profile" 
+              fill 
+              className="object-cover"
+              priority
+            /> 
+            */}
                     </div>
-                    <h1 className="text-2xl font-bold tracking-tight mb-2">Illustrator Name</h1>
-                    <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-                        デジタルイラストレーター。幻想的な色彩と光の表現を得意としています。
+                    <h1 className="text-3xl font-bold tracking-tight mb-3">Illustrator Name</h1>
+                    <p className="text-gray-400 text-sm leading-relaxed max-w-xs font-medium">
+                        デジタルイラストレーション / コンセプトアート
                     </p>
                 </div>
 
-                {/* Links Section */}
-                <div className="w-full space-y-4 mb-16">
+                {/* Links Section - Mobile First Large Buttons */}
+                <div className="w-full space-y-4 mb-20 flex-grow">
                     {links.length > 0 ? (
                         links.map((link) => (
                             <a
@@ -43,33 +43,45 @@ export default async function LinksPage() {
                                 href={link.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group relative flex items-center justify-center w-full py-4 px-6 rounded-2xl bg-white/5 border border-white/10 transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:-translate-y-1 hover:shadow-lg active:scale-95"
+                                className="group relative flex items-center justify-center w-full py-5 px-8 rounded-2xl bg-white/5 border border-white/10 transition-all duration-500 hover:bg-white/10 hover:border-white/20 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] active:scale-[0.98]"
                             >
-                                {link.icon && (
-                                    <div className="absolute left-6 h-6 w-6">
-                                        <Image src={link.icon.url} alt="" fill className="object-contain opacity-70 group-hover:opacity-100 transition-opacity" />
-                                    </div>
-                                )}
-                                <span className="font-semibold text-base">{link.title}</span>
-                                <span className="absolute right-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
-                                    →
-                                </span>
+                                <div className="flex items-center gap-4">
+                                    {link.icon && (
+                                        <div className="relative h-6 w-6 shrink-0 opacity-80 group-hover:opacity-100 transition-opacity">
+                                            <Image
+                                                src={link.icon.url}
+                                                alt=""
+                                                fill
+                                                className="object-contain"
+                                            />
+                                        </div>
+                                    )}
+                                    <span className="font-bold text-lg tracking-wide">{link.title}</span>
+                                </div>
+                                {/* Subtle right arrow indication */}
+                                <div className="absolute right-8 opacity-0 group-hover:opacity-40 transition-all duration-500 translate-x-4 group-hover:translate-x-0 hidden sm:block">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </div>
                             </a>
                         ))
                     ) : (
-                        <div className="text-center py-8 bg-white/5 rounded-2xl border border-dashed border-white/10">
-                            <p className="text-gray-500 text-sm">リンクを読み込んでいます...</p>
+                        <div className="text-center py-20 bg-white/5 rounded-3xl border-2 border-dashed border-white/5">
+                            <p className="text-gray-600 font-medium">No links found.</p>
                         </div>
                     )}
                 </div>
 
                 {/* Home Button */}
-                <div className="mt-auto">
+                <div className="pb-12">
                     <Link
                         href="/"
-                        className="inline-flex items-center gap-2 text-sm font-bold tracking-widest text-white/50 hover:text-white transition-colors uppercase"
+                        className="flex items-center gap-3 px-8 py-3 rounded-full bg-white/5 border border-white/10 text-xs font-black tracking-[0.2em] text-white/40 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 uppercase"
                     >
-                        ← Back to Portfolio
+                        <span>←</span>
+                        <span>Back to Portfolio</span>
                     </Link>
                 </div>
             </div>

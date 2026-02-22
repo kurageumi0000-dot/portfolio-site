@@ -48,6 +48,11 @@ export default function RootLayout({
                                             ABOUT
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="/contact" className="relative py-2 hover:text-gray-300 transition-colors after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full">
+                                            CONTACT
+                                        </a>
+                                    </li>
                                 </ul>
                             </nav>
                         </div>

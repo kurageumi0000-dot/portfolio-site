@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -29,39 +30,7 @@ export default function RootLayout({
         <html lang="ja" className={`${inter.variable} ${notoJp.variable}`}>
             <body className="antialiased text-foreground bg-background">
                 <div className="flex flex-col min-h-screen">
-                    <header className="sticky top-0 z-50 bg-gray-950/90 backdrop-blur-md border-b border-white/10 text-white">
-                        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-                            <a href="/" className="group flex items-center gap-2">
-                                <span className="text-2xl font-bold tracking-tighter transition-all group-hover:tracking-normal">
-                                    PORTFOLIO
-                                </span>
-                            </a>
-                            <nav>
-                                <ul className="flex items-center gap-8 text-sm font-medium">
-                                    <li>
-                                        <a href="/" className="relative py-2 hover:text-gray-300 transition-colors after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full">
-                                            WORKS
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/about" className="relative py-2 hover:text-gray-300 transition-colors after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full">
-                                            ABOUT
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/contact" className="relative py-2 hover:text-gray-300 transition-colors after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full">
-                                            CONTACT
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/links" className="relative py-2 hover:text-gray-300 transition-colors after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full">
-                                            LINKS
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </header>
+                    <Header />
 
                     <main className="flex-grow">
                         {children}

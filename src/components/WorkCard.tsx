@@ -18,16 +18,16 @@ export default function WorkCard({ work }: Props) {
                     alt={work.title}
                     fill
                     className="object-cover transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110 group-hover:brightness-[1.05]"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
                 />
                 {/* Subtle overlay */}
                 <div className="absolute inset-0 bg-black/0 transition-all duration-700 group-hover:bg-black/10" />
             </div>
-            <div className="mt-5 space-y-1 px-1">
-                <h3 className="text-base font-semibold text-gray-900 transition-colors group-hover:text-gray-600">
+            <div className="mt-3 md:mt-5 space-y-0.5 md:space-y-1 px-1">
+                <h3 className="text-sm md:text-base font-bold text-gray-900 leading-snug transition-colors group-hover:text-gray-600 line-clamp-2">
                     {work.title}
                 </h3>
-                <p className="text-xs font-medium uppercase tracking-widest text-muted/60">
+                <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-gray-400">
                     {toolName}
                 </p>
             </div>

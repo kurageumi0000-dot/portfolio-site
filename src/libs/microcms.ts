@@ -59,14 +59,16 @@ export const getLinks = async (): Promise<SNSLink[]> => {
 };
 
 /**
- * Fetch commission info from microCMS 'commission' endpoint (Object type)
+ * Fetch commission info from microCMS 'commission' endpoint
+ * リスト形式（List type）から最初の1件を取得するように修正
  */
 export const getCommission = async (): Promise<Commission | undefined> => {
     try {
         const data = await client.get({
             endpoint: "commission",
         });
-        return data;
+        // データがリスト形式で届くため、contents[0] を返す
+        return data.contents[0];
     } catch (error) {
         console.error("Failed to fetch commission info:", error);
         return undefined;

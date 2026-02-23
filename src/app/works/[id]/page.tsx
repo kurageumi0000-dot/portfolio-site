@@ -37,15 +37,15 @@ export default async function WorkPage({ params }: Props) {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
                     {/* Left Column: Image (Sticky on Desktop) */}
-                    <div className="lg:sticky lg:top-24 space-y-6">
-                        <div className="relative w-full overflow-hidden rounded-3xl bg-white/40 backdrop-blur-sm border border-slate-200/50 shadow-2xl shadow-indigo-100/20 group flex items-center justify-center min-h-[40vh] h-[50vh] md:h-[60vh] lg:h-[75vh]">
+                    <div className="lg:sticky lg:top-24 space-y-6 flex justify-center w-full">
+                        <div className="relative w-fit h-fit overflow-hidden rounded-3xl bg-white/40 backdrop-blur-sm border border-slate-200/50 shadow-2xl shadow-indigo-100/20 group flex items-center justify-center">
                             <Image
                                 src={work.main_image.url}
                                 alt={work.title}
-                                fill
-                                className="object-contain transition-all duration-700 group-hover:scale-[1.01]"
+                                width={work.main_image.width}
+                                height={work.main_image.height}
+                                className="w-auto h-auto max-h-[75vh] max-w-full object-contain transition-all duration-700 group-hover:scale-[1.01]"
                                 priority
-                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                             <Watermark />
                         </div>

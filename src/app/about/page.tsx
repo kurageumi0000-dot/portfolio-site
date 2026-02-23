@@ -42,7 +42,7 @@ export default async function AboutPage() {
                             <Sparkles size={14} />
                             <span>About Me</span>
                         </div>
-                        <h1 className="text-6xl lg:text-8xl font-black tracking-tighter mb-12 leading-[0.9] text-zinc-900">
+                        <h1 className="text-4xl md:text-6xl lg:text-8xl font-black tracking-tighter mb-12 leading-[1.1] md:leading-[0.9] text-zinc-900 text-balance break-keep">
                             {about.title}<span className="text-cyan-500">.</span>
                         </h1>
                     </div>
@@ -57,11 +57,13 @@ export default async function AboutPage() {
                     </div>
                     <p className="text-zinc-500 font-bold tracking-widest uppercase text-sm mb-4">Total Achievements</p>
                     <div className="flex flex-col items-center">
-                        <span className="text-8xl lg:text-9xl font-black tracking-tighter text-zinc-900 flex items-baseline">
-                            {about.achievements_count}
-                            <span className="text-3xl lg:text-4xl text-cyan-500 ml-2">件</span>
-                        </span>
-                        <div className="w-24 h-1.5 bg-cyan-500 rounded-full mt-8" />
+                        <div className="flex items-baseline justify-center gap-1 text-zinc-900">
+                            <span className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter">
+                                {about.achievements_count}
+                            </span>
+                            <span className="text-xl md:text-3xl lg:text-4xl font-bold text-cyan-500">件</span>
+                        </div>
+                        <div className="w-16 md:w-24 h-1 md:h-1.5 bg-cyan-500 rounded-full mt-6 md:mt-8" />
                     </div>
                 </div>
             </section>
@@ -86,9 +88,9 @@ export default async function AboutPage() {
             {/* Service & Environment Sections */}
             <section className="pb-32 lg:pb-48">
                 <div className="container mx-auto px-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12">
                         {secondarySections.map((section) => (
-                            <div key={section.title} className="bg-white p-10 lg:p-14 rounded-[2.5rem] border border-zinc-100 shadow-sm hover:shadow-md transition-shadow">
+                            <div key={section.title} className="bg-white p-8 md:p-10 lg:p-14 rounded-2xl md:rounded-[2.5rem] border border-zinc-100 shadow-sm hover:shadow-md transition-shadow">
                                 <div className="flex items-center gap-4 mb-8">
                                     <div className="p-3 rounded-2xl bg-cyan-50">
                                         {section.icon}
@@ -109,13 +111,13 @@ export default async function AboutPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="container mx-auto px-6 pb-32 lg:pb-48">
-                <div className="bg-zinc-900 rounded-[3rem] p-12 lg:p-24 text-center overflow-hidden relative group">
+            <section className="container mx-auto px-6 pb-20 md:pb-32 lg:pb-48">
+                <div className="bg-zinc-900 rounded-2xl md:rounded-[3rem] p-8 md:p-12 lg:p-24 text-center overflow-hidden relative group">
                     {/* Subtle decoration */}
                     <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl -mr-48 -mt-48 transition-transform group-hover:scale-110" />
                     <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl -ml-48 -mb-48 transition-transform group-hover:scale-110" />
 
-                    <h2 className="text-4xl lg:text-6xl font-black text-white tracking-tighter mb-12 relative z-10 leading-tight">
+                    <h2 className="text-2xl md:text-4xl lg:text-6xl font-black text-white tracking-tighter mb-8 md:mb-12 relative z-10 leading-tight text-balance">
                         制作のご依頼については<br className="hidden md:block" />こちらをご確認ください。
                     </h2>
 

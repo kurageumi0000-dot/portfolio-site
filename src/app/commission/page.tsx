@@ -29,7 +29,7 @@ export default async function CommissionPage() {
                         <Info size={14} />
                         <span>Guide & Pricing</span>
                     </div>
-                    <h1 className="text-5xl lg:text-7xl font-black tracking-tighter mb-8 leading-[1.1] text-zinc-900">
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-8 leading-[1.2] md:leading-[1.1] text-zinc-900 text-balance break-keep">
                         Commission<span className="text-cyan-500">.</span>
                     </h1>
                     <p className="text-xl text-zinc-500 leading-relaxed font-medium max-w-2xl">
@@ -57,7 +57,7 @@ export default async function CommissionPage() {
 
                                 {/* Content Area */}
                                 <div className="lg:w-3/4">
-                                    <div className="bg-white p-8 lg:p-12 rounded-3xl border border-zinc-200/60 shadow-sm hover:shadow-md transition-shadow">
+                                    <div className="bg-white p-6 md:p-8 lg:p-12 rounded-2xl md:rounded-3xl border border-zinc-200/60 shadow-sm hover:shadow-md transition-shadow">
                                         <div
                                             className="prose prose-zinc prose-lg max-w-none 
                       prose-headings:text-zinc-900 prose-headings:font-black prose-headings:tracking-tight
@@ -77,12 +77,12 @@ export default async function CommissionPage() {
                 </div>
 
                 {/* CTA Section */}
-                <section className="mt-32 p-12 lg:p-20 rounded-[3rem] bg-zinc-900 text-white text-center flex flex-col items-center overflow-hidden relative">
+                <section className="mt-20 md:mt-32 p-8 md:p-12 lg:p-20 rounded-2xl md:rounded-[3rem] bg-zinc-900 text-white text-center flex flex-col items-center overflow-hidden relative">
                     {/* Subtle decoration */}
                     <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl -mr-32 -mt-32" />
                     <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl -ml-32 -mb-32" />
 
-                    <h2 className="text-3xl lg:text-5xl font-black tracking-tighter mb-8 leading-tight relative z-10">
+                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-black tracking-tighter mb-8 leading-tight relative z-10 text-balance">
                         制作の相談をはじめる
                     </h2>
                     <p className="text-zinc-400 mb-12 max-w-lg font-medium relative z-10">

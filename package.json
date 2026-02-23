@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",
-    "@vercel/analytics": "latest",
+    "@vercel/analytics": "^1.6.1",
     "lucide-react": "^0.575.0",
     "microcms-js-sdk": "^3.3.0",
     "next": "16.1.6",

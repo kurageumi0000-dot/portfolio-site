@@ -100,26 +100,26 @@ export default async function CommissionPage() {
                 </div>
 
                 {/* CTA Section */}
-                <section className="mt-14 md:mt-20 p-6 md:p-10 lg:p-16 rounded-2xl md:rounded-[2.5rem] bg-deep-sea text-white text-center flex flex-col items-center overflow-hidden relative group animate-fade-in-up-delay-3">
+                <section className="mt-14 md:mt-20 p-6 md:p-10 lg:p-16 rounded-2xl md:rounded-[2.5rem] bg-gradient-to-br from-indigo-50/80 via-white to-cyan-50/80 text-center flex flex-col items-center overflow-hidden relative group animate-fade-in-up-delay-3 border border-slate-100 shadow-xl shadow-indigo-100/20">
                     {/* Subtle decoration */}
-                    <div className="absolute top-0 right-0 w-48 h-48 bg-accent-blue/20 rounded-full blur-3xl -mr-24 -mt-24 transition-transform duration-700 group-hover:scale-110" />
-                    <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent-blue/10 rounded-full blur-3xl -ml-24 -mb-24 transition-transform duration-700 group-hover:scale-110" />
+                    <div className="absolute top-0 right-0 w-48 h-48 bg-accent-blue/10 rounded-full blur-3xl -mr-24 -mt-24 transition-transform duration-700 group-hover:scale-110" />
+                    <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent-blue/5 rounded-full blur-3xl -ml-24 -mb-24 transition-transform duration-700 group-hover:scale-110" />
 
-                    <h2 className="text-xl md:text-3xl font-black tracking-tight mb-5 leading-snug relative z-10 text-balance">
+                    <h2 className="text-xl md:text-3xl font-black text-slate-900 tracking-tight mb-5 leading-snug relative z-10 text-balance">
                         制作の相談をはじめる
                     </h2>
-                    <p className="text-zinc-400 mb-8 max-w-md text-sm font-medium relative z-10 leading-relaxed">
-                        具体的なイメージが決まっていなくても大丈夫です。
+                    <p className="text-slate-500 mb-8 max-w-md text-sm font-medium relative z-10 leading-relaxed text-balance">
+                        具体的なイメージが決まっていなくても大丈夫です。<br className="hidden md:block" />
                         まずはご予算や用途など、お気軽にお聞かせください。
                     </p>
                     <Link
                         href="/contact"
-                        className="inline-flex items-center gap-3 px-8 py-4 bg-accent-blue text-white font-bold rounded-full transition-all duration-300 hover:bg-accent-blue/80 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-accent-blue/30 active:scale-95"
+                        className="inline-flex items-center gap-3 px-8 py-4 bg-accent-blue text-white font-bold rounded-full transition-all duration-300 hover:bg-accent-blue/80 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-accent-blue/30 active:scale-95 relative z-10"
                     >
                         <span className="text-sm">お問い合わせフォームへ進む</span>
                         <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                     </Link>
-                    <p className="mt-6 text-zinc-500 text-[10px] font-bold tracking-widest uppercase">
+                    <p className="mt-6 text-slate-400 text-[10px] font-bold tracking-widest uppercase relative z-10">
                         通常、2〜3営業日以内にご返信いたします。
                     </p>
                 </section>

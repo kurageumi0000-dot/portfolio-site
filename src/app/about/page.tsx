@@ -27,32 +27,30 @@ export default async function AboutPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-[#e0f7ff] via-white to-white text-zinc-800 selection:bg-accent-blue/20 selection:text-accent-blue overflow-hidden relative">
-
-            {/* Background Decorations (Floating Bubbles) */}
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0">
-                <div className="absolute top-[10%] left-[5%] w-48 h-48 bg-accent-blue/5 rounded-full blur-3xl animate-float-slow" />
-                <div className="absolute top-[40%] right-[10%] w-72 h-72 bg-accent-blue/8 rounded-full blur-3xl animate-float-medium" style={{ animationDelay: '2s' }} />
-                <div className="absolute bottom-[20%] left-[15%] w-56 h-56 bg-cyan-100/20 rounded-full blur-3xl animate-float-slow" style={{ animationDelay: '4s' }} />
-
-                {/* Small floating bubbles */}
-                <div className="absolute top-[15%] right-[20%] w-3 h-3 bg-accent-blue/20 rounded-full animate-float-fast" />
-                <div className="absolute top-[30%] left-[8%] w-2 h-2 bg-accent-blue/25 rounded-full animate-float-medium" style={{ animationDelay: '1s' }} />
-                <div className="absolute top-[55%] right-[5%] w-4 h-4 bg-accent-blue/10 rounded-full animate-float-slow" style={{ animationDelay: '3s' }} />
-                <div className="absolute top-[70%] left-[25%] w-2.5 h-2.5 bg-accent-blue/15 rounded-full animate-float-fast" style={{ animationDelay: '2s' }} />
-            </div>
+        <div className="min-h-screen text-slate-800 selection:bg-accent-blue/10 selection:text-accent-blue overflow-hidden relative">
 
             {/* Hero Section */}
-            <section className="relative pt-24 pb-16 lg:pt-40 lg:pb-24 z-10">
+            <section className="relative pt-24 pb-16 lg:pt-40 lg:pb-24 z-10 bg-gradient-to-br from-indigo-50/30 via-white to-cyan-50/30">
                 <div className="container mx-auto px-6">
-                    <div className="max-w-3xl animate-fade-in-up">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 text-accent-blue text-[10px] font-bold uppercase tracking-widest mb-6 border border-accent-blue/20">
-                            <Sparkles size={12} />
-                            <span>プロフィール</span>
+                    <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16 animate-fade-in-up">
+                        {/* Profile Image Section */}
+                        <div className="relative w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden shadow-2xl shadow-indigo-100 bg-white border-4 border-white shrink-0">
+                            <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-cyan-50 flex items-center justify-center">
+                                <span className="text-xl font-black tracking-tighter text-slate-200 select-none">
+                                    Icon
+                                </span>
+                            </div>
                         </div>
-                        <h1 className="text-3xl md:text-5xl font-black tracking-tight mb-6 leading-[1.15] text-zinc-900 text-balance break-keep">
-                            {about.title}<span className="text-accent-blue">.</span>
-                        </h1>
+
+                        <div className="max-w-3xl text-center md:text-left">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 text-accent-blue text-[10px] font-bold uppercase tracking-widest mb-6 border border-accent-blue/20">
+                                <Sparkles size={12} />
+                                <span>プロフィール</span>
+                            </div>
+                            <h1 className="text-3xl md:text-5xl font-black tracking-tight mb-6 leading-[1.15] text-slate-900 text-balance break-keep">
+                                {about.title}<span className="text-accent-blue">.</span>
+                            </h1>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -138,12 +136,12 @@ export default async function AboutPage() {
 
             {/* CTA Section */}
             <section className="container mx-auto px-6 pb-16 md:pb-24 lg:pb-32 relative z-10">
-                <div className="bg-deep-sea rounded-2xl md:rounded-[2.5rem] p-8 md:p-12 lg:p-20 text-center overflow-hidden relative group animate-fade-in-up-delay-3">
+                <div className="bg-gradient-to-br from-indigo-50/80 via-white to-cyan-50/80 rounded-2xl md:rounded-[2.5rem] p-8 md:p-12 lg:p-20 text-center overflow-hidden relative group animate-fade-in-up-delay-3 border border-slate-100 shadow-xl shadow-indigo-100/20">
                     {/* Subtle decoration */}
-                    <div className="absolute top-0 right-0 w-72 h-72 bg-accent-blue/20 rounded-full blur-3xl -mr-36 -mt-36 transition-transform duration-700 group-hover:scale-110" />
-                    <div className="absolute bottom-0 left-0 w-72 h-72 bg-accent-blue/10 rounded-full blur-3xl -ml-36 -mb-36 transition-transform duration-700 group-hover:scale-110" />
+                    <div className="absolute top-0 right-0 w-72 h-72 bg-accent-blue/10 rounded-full blur-3xl -mr-36 -mt-36 transition-transform duration-700 group-hover:scale-110" />
+                    <div className="absolute bottom-0 left-0 w-72 h-72 bg-accent-blue/5 rounded-full blur-3xl -ml-36 -mb-36 transition-transform duration-700 group-hover:scale-110" />
 
-                    <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight mb-6 md:mb-10 relative z-10 leading-snug text-balance">
+                    <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight mb-6 md:mb-10 relative z-10 leading-snug text-balance">
                         制作のご依頼については<br className="hidden md:block" />こちらをご確認ください。
                     </h2>
 

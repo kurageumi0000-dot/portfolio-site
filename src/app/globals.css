@@ -5,7 +5,8 @@
   --font-sans: "Zen Kaku Gothic New", "Inter", "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", "Noto Serif JP", ui-serif, Georgia, serif;
   --color-accent-blue: #00C2FF;
-  --color-deep-sea: #0B1120;
+  --color-pale-blue: #f0f9ff;
+  --color-pale-purple: #f5f3ff;
 
   /* Custom animations */
   --animate-fade-in-up: fade-in-up 0.8s ease-out both;
@@ -66,16 +67,15 @@
 }
 
 :root {
-  --background: #fdfdfd;
-  --foreground: #1a1a1a;
-  --muted: #666666;
-  --border: #e5e5e5;
-  --deep-sea: #0B1120;
+  --background: #ffffff;
+  --foreground: #1e293b;
+  --muted: #64748b;
+  --border: #e2e8f0;
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: fixed linear-gradient(to bottom right, #f5f3ff, #ffffff, #f0f9ff);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

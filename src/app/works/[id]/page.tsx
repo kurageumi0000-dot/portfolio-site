@@ -66,13 +66,13 @@ export default async function WorkPage({ params }: Props) {
 
             {/* Main Content */}
             <div className="container mx-auto px-6 max-w-6xl">
-                {/* Main Image */}
-                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl bg-gray-100 shadow-2xl shadow-black/5 mb-16 lg:mb-24 group">
+                {/* Main Image - Fixed to prevent trimming */}
+                <div className="relative w-full overflow-hidden rounded-3xl bg-white/40 backdrop-blur-sm border border-slate-200/50 shadow-2xl shadow-indigo-100/20 mb-16 lg:mb-24 group flex items-center justify-center min-h-[40vh] max-h-[85vh] h-[50vh] md:h-[70vh] lg:h-[80vh]">
                     <Image
                         src={work.main_image.url}
                         alt={work.title}
                         fill
-                        className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                        className="object-contain transition-all duration-700 group-hover:scale-[1.01]"
                         priority
                         sizes="100vw"
                     />

@@ -24,7 +24,8 @@ export default function Header() {
     }, []);
 
     const navLinks = [
-        { href: "/", label: "作品集" },
+        { href: "/", label: "実績（Original）" },
+        { href: "/fanart", label: "ファンアート" },
         { href: "/about", label: "プロフィール" },
         { href: "/commission", label: "ご依頼について" },
         { href: "/contact", label: "お問い合わせ" },

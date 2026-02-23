@@ -17,11 +17,15 @@ export const client = createClient({
     apiKey: process.env.MICROCMS_API_KEY,
 });
 
-export const getWorks = async (): Promise<Work[]> => {
+export const getWorks = async (kind?: "Original" | "Fanart"): Promise<Work[]> => {
     try {
+        const queries: any = { orders: "-publishedAt" };
+        if (kind) {
+            queries.filters = `kind[equals]${kind}`;
+        }
         const data = await client.get({
             endpoint: "works",
-            queries: { orders: "-publishedAt" },
+            queries: queries,
         });
         return data.contents;
     } catch (error) {

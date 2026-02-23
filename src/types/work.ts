@@ -10,6 +10,7 @@ export type Work = {
     duration: string;
     client: string;
     description: string;
+    kind: "Original" | "Fanart";
     publishedAt: string;
     updatedAt: string;
 };

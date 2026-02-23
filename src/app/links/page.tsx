@@ -28,7 +28,7 @@ export default async function LinksPage() {
             /> 
             */}
                     </div>
-                    <h1 className="text-3xl font-bold tracking-tight mb-3">Illustrator Name</h1>
+                    <h1 className="text-3xl font-bold tracking-tight mb-3">海音くらげ</h1>
                     <p className="text-gray-400 text-sm leading-relaxed max-w-xs font-medium">
                         デジタルイラストレーション / コンセプトアート
                     </p>
@@ -69,7 +69,7 @@ export default async function LinksPage() {
                         ))
                     ) : (
                         <div className="text-center py-20 bg-white/5 rounded-3xl border-2 border-dashed border-white/5">
-                            <p className="text-gray-600 font-medium">No links found.</p>
+                            <p className="text-gray-600 font-medium">リンクが見つかりませんでした。</p>
                         </div>
                     )}
                 </div>
@@ -81,7 +81,7 @@ export default async function LinksPage() {
                         className="flex items-center gap-3 px-8 py-3 rounded-full bg-white/5 border border-white/10 text-xs font-black tracking-[0.2em] text-white/40 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 uppercase"
                     >
                         <span>←</span>
-                        <span>Back to Portfolio</span>
+                        <span>作品集へ戻る</span>
                     </Link>
                 </div>
             </div>

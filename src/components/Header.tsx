@@ -24,11 +24,11 @@ export default function Header() {
     }, []);
 
     const navLinks = [
-        { href: "/", label: "WORKS" },
-        { href: "/about", label: "ABOUT" },
-        { href: "/commission", label: "COMMISSION" },
-        { href: "/contact", label: "CONTACT" },
-        { href: "/links", label: "LINKS" },
+        { href: "/", label: "作品集" },
+        { href: "/about", label: "プロフィール" },
+        { href: "/commission", label: "ご依頼について" },
+        { href: "/contact", label: "お問い合わせ" },
+        { href: "/links", label: "リンク集" },
     ];
 
     return (
@@ -36,7 +36,7 @@ export default function Header() {
             <div className="container mx-auto px-6 h-20 flex items-center justify-between">
                 <Link href="/" className="group flex items-center gap-2">
                     <span className="text-2xl font-bold tracking-tighter transition-all group-hover:tracking-normal">
-                        PORTFOLIO
+                        海音くらげ
                     </span>
                 </Link>
 

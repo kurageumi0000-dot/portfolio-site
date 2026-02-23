@@ -64,9 +64,9 @@ export default function RootLayout({
 
                     <footer className="py-16 mt-20 border-t border-border bg-gray-50">
                         <div className="container mx-auto px-6 flex flex-col items-center gap-6">
-                            <span className="text-xl font-bold tracking-tighter text-gray-900">PORTFOLIO</span>
+                            <span className="text-xl font-bold tracking-tighter text-gray-900">海音くらげ</span>
                             <p className="text-sm text-muted">
-                                &copy; {new Date().getFullYear()} Illustrator Portfolio. All rights reserved.
+                                &copy; {new Date().getFullYear()} 海音くらげ. All rights reserved.
                             </p>
                             <div className="flex gap-6 mt-2">
                                 <span className="w-5 h-5 bg-muted/20 rounded-full" />

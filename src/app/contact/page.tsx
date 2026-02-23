@@ -6,7 +6,7 @@ export default function ContactPage() {
                 <div className="container mx-auto px-6">
                     <section className="max-w-3xl">
                         <h2 className="text-5xl lg:text-7xl font-bold tracking-tighter leading-[1.1] text-white">
-                            Get in Touch.
+                            お問い合わせ
                         </h2>
                         <p className="mt-8 text-lg lg:text-xl text-gray-400 leading-relaxed max-w-2xl">
                             制作のご依頼やご相談など、お気軽にお問い合わせください。

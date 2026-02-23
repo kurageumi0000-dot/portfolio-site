@@ -11,7 +11,7 @@ export default async function Home() {
                 <div className="container mx-auto px-6">
                     <section className="max-w-3xl">
                         <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tighter leading-[1.1] text-white">
-                            Illustrations & <br className="hidden sm:block" /> Creative Works.
+                            イラスト・作品集
                         </h2>
                         <p className="mt-8 text-base lg:text-xl text-gray-400 leading-relaxed max-w-2xl font-medium">
                             デジタルイラストレーションとコンセプトアートを中心とした制作実績です。

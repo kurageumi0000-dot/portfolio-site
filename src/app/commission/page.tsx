@@ -14,9 +14,9 @@ export default async function CommissionPage() {
     }
 
     const sections = [
-        { title: "Price & Delivery", content: commission.price_info, id: "price" },
-        { title: "Workflow", content: commission.workflow, id: "workflow" },
-        { title: "Terms & Conditions", content: commission.notes, id: "terms" },
+        { title: "料金と納期", content: commission.price_info, id: "price" },
+        { title: "制作の流れ", content: commission.workflow, id: "workflow" },
+        { title: "注意事項・利用規約", content: commission.notes, id: "terms" },
     ];
 
     return (
@@ -38,10 +38,10 @@ export default async function CommissionPage() {
                 <section className="max-w-3xl mb-16 lg:mb-20 animate-fade-in-up">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 text-accent-blue text-[10px] font-bold uppercase tracking-widest mb-5 border border-accent-blue/20">
                         <Info size={12} />
-                        <span>Guide & Pricing</span>
+                        <span>制作のご案内</span>
                     </div>
                     <h1 className="text-3xl md:text-5xl font-black tracking-tight mb-5 leading-[1.2] text-zinc-900 text-balance break-keep">
-                        Commission<span className="text-accent-blue">.</span>
+                        ご依頼について<span className="text-accent-blue">.</span>
                     </h1>
                     <p className="text-base md:text-lg text-zinc-500 leading-relaxed font-medium max-w-xl">
                         イラスト制作のご依頼について。清潔感と信頼を大切に、
@@ -120,7 +120,7 @@ export default async function CommissionPage() {
                         <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                     </Link>
                     <p className="mt-6 text-zinc-500 text-[10px] font-bold tracking-widest uppercase">
-                        Usually responds within 48 hours.
+                        通常、2〜3営業日以内にご返信いたします。
                     </p>
                 </section>
 

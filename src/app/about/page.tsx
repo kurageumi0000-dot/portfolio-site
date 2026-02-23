@@ -48,7 +48,7 @@ export default async function AboutPage() {
                     <div className="max-w-3xl animate-fade-in-up">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 text-accent-blue text-[10px] font-bold uppercase tracking-widest mb-6 border border-accent-blue/20">
                             <Sparkles size={12} />
-                            <span>About Me</span>
+                            <span>プロフィール</span>
                         </div>
                         <h1 className="text-3xl md:text-5xl font-black tracking-tight mb-6 leading-[1.15] text-zinc-900 text-balance break-keep">
                             {about.title}<span className="text-accent-blue">.</span>
@@ -70,7 +70,7 @@ export default async function AboutPage() {
                     <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-white shadow-sm border border-zinc-100 mb-6 text-accent-blue">
                         <Award className="w-6 h-6" />
                     </div>
-                    <p className="text-zinc-400 font-bold tracking-widest uppercase text-xs mb-3">Total Achievements</p>
+                    <p className="text-zinc-400 font-bold tracking-widest uppercase text-xs mb-3">累計実績</p>
                     <div className="flex flex-col items-center">
                         <div className="flex items-baseline justify-center gap-1">
                             <span className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-accent-blue drop-shadow-sm">

@@ -32,11 +32,10 @@ export default async function FanartPage() {
 
                         <div className="animate-fade-in-up-delay-1 text-center md:text-left">
                             <h1 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-snug text-slate-900 text-balance break-words w-full max-w-full">
-                                ファンアート<span className="text-accent-blue">.</span>
+                                創作・FA
                             </h1>
                             <p className="mt-8 text-base lg:text-xl text-slate-600 leading-relaxed max-w-2xl font-medium">
-                                好きな作品やキャラクターへの愛を込めて制作した二次創作作品集です。
-                                ガイドラインを遵守し、楽しみながら表現することを目指しています。
+                                好きな作品やキャラクターへの愛を込めて制作した二次創作作品および、個人の創作イラスト集です。ガイドラインを遵守し、敬意を持って表現することを目指しています。
                             </p>
                         </div>
                     </section>

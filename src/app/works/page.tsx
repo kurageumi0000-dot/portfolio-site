@@ -11,10 +11,10 @@ export default async function WorksListPage() {
             <div className="bg-gradient-to-br from-indigo-50/50 via-white to-cyan-50/50 py-20 lg:py-32 mb-12 md:mb-16 lg:mb-24 border-b border-slate-100">
                 <div className="container mx-auto px-6">
                     <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 mb-6 italic">
-                        Works<span className="text-accent-blue">.</span>
+                        実績
                     </h1>
                     <p className="text-lg text-slate-600 font-medium max-w-2xl">
-                        これまで制作してきたオリジナルイラストレーションと、ご依頼いただいたプロジェクトの実績一覧です。
+                        これまでご依頼いただき制作してきたプロジェクトの実績一覧です。ご依頼の際の参考にしてください。
                     </p>
                 </div>
             </div>

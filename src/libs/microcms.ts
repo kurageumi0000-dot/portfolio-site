@@ -18,9 +18,24 @@ export const client = createClient({
     apiKey: process.env.MICROCMS_API_KEY,
 });
 
-export const getWorks = async (kind?: "original" | "fanart"): Promise<Work[]> => {
+export type GetsResponse<T> = {
+    contents: T[];
+    totalCount: number;
+    offset: number;
+    limit: number;
+};
+
+export const getWorks = async (
+    kind?: "original" | "fanart",
+    limit: number = 12,
+    offset: number = 0
+): Promise<GetsResponse<Work>> => {
     try {
-        const queries: any = { orders: "-publishedAt" };
+        const queries: any = {
+            orders: "-publishedAt",
+            limit: limit,
+            offset: offset
+        };
         if (kind) {
             // 複数選択（カスタムフィールド等）の場合は[contains]を使用、かつデータ側が小文字のため小文字で検索
             queries.filters = `kind[contains]${kind}`;
@@ -33,10 +48,15 @@ export const getWorks = async (kind?: "original" | "fanart"): Promise<Work[]> =>
             },
         });
 
-        return data.contents;
+        return data;
     } catch (error) {
         console.error("Failed to fetch works:", error);
-        return [];
+        return {
+            contents: [],
+            totalCount: 0,
+            offset: 0,
+            limit: 12
+        };
     }
 };
 
@@ -110,7 +130,7 @@ export const getHybridFeed = async (limit: number = 3): Promise<FeedItem[]> => {
             getNewsList(limit * 2) // Fetch a bit more to ensure we have enough after merging
         ]);
 
-        const workItems: FeedItem[] = works.map(work => ({
+        const workItems: FeedItem[] = works.contents.map(work => ({
             id: work.id,
             title: work.title,
             date: work.publishedAt || work.date || "",

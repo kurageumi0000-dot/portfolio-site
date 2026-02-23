@@ -1,9 +1,22 @@
 import Image from "next/image";
+import Link from "next/link";
 import WorkCard from "@/components/WorkCard";
 import { getWorks } from "@/libs/microcms";
 
-export default async function FanartPage() {
-    const works = await getWorks("fanart");
+type Props = {
+    searchParams: Promise<{ page?: string }>;
+};
+
+export default async function FanartPage({ searchParams }: Props) {
+    const { page } = await searchParams;
+    const currentPage = parseInt(page || "1", 10);
+    const limit = 12;
+    const offset = (currentPage - 1) * limit;
+
+    const worksData = await getWorks("fanart", limit, offset);
+    const works = worksData.contents;
+    const totalCount = worksData.totalCount;
+    const totalPages = Math.ceil(totalCount / limit);
 
     return (
         <div className="pb-24 lg:pb-32">
@@ -34,9 +47,16 @@ export default async function FanartPage() {
                             <h1 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-snug text-slate-900 text-balance break-words w-full max-w-full">
                                 創作・FA
                             </h1>
-                            <p className="mt-8 text-base lg:text-xl text-slate-600 leading-relaxed max-w-2xl font-medium">
+                            <p className="mt-8 text-base lg:text-xl text-slate-600 leading-relaxed max-w-2xl font-medium mb-8">
                                 愛を込めて制作した二次創作作品および、個人の創作イラスト集です。ガイドラインを遵守し表現することを目指しています。
                             </p>
+                            <Link
+                                href="/works"
+                                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-indigo-50 text-indigo-600 text-sm font-bold border border-indigo-100 hover:bg-indigo-100 transition-colors"
+                            >
+                                実績一覧を見る
+                                <span>→</span>
+                            </Link>
                         </div>
                     </section>
                 </div>
@@ -45,11 +65,38 @@ export default async function FanartPage() {
             {/* Gallery Section */}
             <div className="container mx-auto px-4 sm:px-6">
                 {works.length > 0 ? (
-                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
-                        {works.map((work) => (
-                            <WorkCard key={work.id} work={work} />
-                        ))}
-                    </div>
+                    <>
+                        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-8">
+                            {works.map((work) => (
+                                <WorkCard key={work.id} work={work} />
+                            ))}
+                        </div>
+
+                        {/* Pagination */}
+                        {totalPages > 1 && (
+                            <div className="mt-20 flex justify-center items-center gap-4">
+                                {currentPage > 1 && (
+                                    <Link
+                                        href={`/fanart?page=${currentPage - 1}`}
+                                        className="px-6 py-3 rounded-full bg-white border border-slate-200 text-slate-600 text-sm font-bold hover:border-slate-400 transition-colors"
+                                    >
+                                        PREV
+                                    </Link>
+                                )}
+                                <span className="text-sm font-black text-slate-400 tracking-widest">
+                                    {currentPage} / {totalPages}
+                                </span>
+                                {currentPage < totalPages && (
+                                    <Link
+                                        href={`/fanart?page=${currentPage + 1}`}
+                                        className="px-6 py-3 rounded-full bg-slate-900 text-white text-sm font-bold hover:bg-slate-700 transition-colors"
+                                    >
+                                        NEXT
+                                    </Link>
+                                )}
+                            </div>
+                        )}
+                    </>
                 ) : (
                     <div className="flex flex-col items-center justify-center py-32 border border-dashed rounded-3xl border-slate-200">
                         <p className="text-slate-400 font-medium">
@@ -57,6 +104,13 @@ export default async function FanartPage() {
                         </p>
                     </div>
                 )}
+
+                <div className="mt-24 text-center">
+                    <Link href="/" className="inline-flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-slate-900 transition-colors">
+                        <span>←</span>
+                        トップページへ戻る
+                    </Link>
+                </div>
             </div>
         </div>
     );

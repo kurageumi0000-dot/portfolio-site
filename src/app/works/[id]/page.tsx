@@ -26,8 +26,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export async function generateStaticParams() {
     try {
-        const works = await getWorks();
-        return works.map((work) => ({
+        const works = await getWorks(undefined, 100); // Fetch more for static generation
+        return works.contents.map((work) => ({
             id: work.id,
         }));
     } catch (error) {

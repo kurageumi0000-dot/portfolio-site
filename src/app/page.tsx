@@ -5,7 +5,8 @@ import { getWorks, getHybridFeed } from "@/libs/microcms";
 import LinksSection from "@/components/LinksSection";
 
 export default async function Home() {
-    const works = await getWorks("original");
+    const worksData = await getWorks("original", 6);
+    const works = worksData.contents;
     const feedItems = await getHybridFeed(3);
 
     return (

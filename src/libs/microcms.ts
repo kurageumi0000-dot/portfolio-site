@@ -126,8 +126,8 @@ export type FeedItem = {
 export const getHybridFeed = async (limit: number = 3): Promise<FeedItem[]> => {
     try {
         const [works, news] = await Promise.all([
-            getWorks(),
-            getNewsList(limit * 2) // Fetch a bit more to ensure we have enough after merging
+            getWorks(undefined, limit), // ワークスも同数件取得
+            getNewsList(limit)
         ]);
 
         const workItems: FeedItem[] = works.contents.map(work => ({

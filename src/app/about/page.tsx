@@ -47,7 +47,7 @@ export default async function AboutPage() {
                                 <Sparkles size={12} />
                                 <span>プロフィール</span>
                             </div>
-                            <h1 className="text-3xl md:text-5xl font-black tracking-tight mb-6 leading-[1.15] text-slate-900 text-balance break-keep">
+                            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-snug text-slate-900 text-balance break-words w-full max-w-full whitespace-pre-wrap">
                                 {about.title}<span className="text-accent-blue">.</span>
                             </h1>
                         </div>

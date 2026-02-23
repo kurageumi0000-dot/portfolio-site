@@ -20,7 +20,7 @@ export default async function Home() {
                         </div>
 
                         <div className="animate-fade-in-up-delay-1 text-center md:text-left">
-                            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter leading-[1.1] text-slate-900">
+                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-snug text-slate-900 text-balance break-words w-full max-w-full">
                                 イラスト・作品集
                             </h2>
                             <p className="mt-8 text-base lg:text-xl text-slate-600 leading-relaxed max-w-2xl font-medium">

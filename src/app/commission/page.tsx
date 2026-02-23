@@ -40,7 +40,7 @@ export default async function CommissionPage() {
                         <Info size={12} />
                         <span>制作のご案内</span>
                     </div>
-                    <h1 className="text-3xl md:text-5xl font-black tracking-tight mb-5 leading-[1.2] text-zinc-900 text-balance break-keep">
+                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight mb-5 leading-snug text-slate-900 text-balance break-words w-full max-w-full">
                         ご依頼について<span className="text-accent-blue">.</span>
                     </h1>
                     <p className="text-base md:text-lg text-zinc-500 leading-relaxed font-medium max-w-xl">

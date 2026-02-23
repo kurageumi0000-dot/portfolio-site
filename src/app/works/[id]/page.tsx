@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getWorkDetail, getWorks } from "@/libs/microcms";
+import Watermark from "@/components/Watermark";
 
 type Props = {
     params: Promise<{ id: string }>;
@@ -46,6 +47,7 @@ export default async function WorkPage({ params }: Props) {
                                 priority
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                             />
+                            <Watermark />
                         </div>
                     </div>
 

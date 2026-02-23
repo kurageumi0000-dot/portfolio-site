@@ -23,77 +23,84 @@ export default async function WorkPage({ params }: Props) {
     }
 
     return (
-        <article className="pb-32">
-            {/* Hero Header */}
-            <section className="bg-gray-50/50 border-b border-border mb-16 lg:mb-24">
-                <div className="container mx-auto px-6 py-16 lg:py-24 max-w-6xl">
-                    <Link
-                        href="/"
-                        className="inline-flex items-center text-sm font-medium text-muted hover:text-foreground transition-all gap-2 group mb-12"
-                    >
-                        <span className="translate-x-0 transition-transform group-hover:-translate-x-1">←</span>
-                        作品一覧へ戻る
-                    </Link>
+        <article className="pb-32 pt-8 lg:pt-16">
+            <div className="container mx-auto px-6 max-w-7xl">
+                {/* Back button */}
+                <Link
+                    href="/"
+                    className="inline-flex items-center text-sm font-bold text-slate-400 hover:text-slate-900 transition-all gap-2 group mb-8 lg:mb-12"
+                >
+                    <span className="translate-x-0 transition-transform group-hover:-translate-x-1">←</span>
+                    作品一覧へ戻る
+                </Link>
 
-                    <div className="max-w-3xl">
-                        <h1 className="text-4xl lg:text-6xl font-black tracking-tighter text-gray-900 leading-[1.1] mb-8">
-                            {work.title}
-                        </h1>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                    {/* Left Column: Image (Sticky on Desktop) */}
+                    <div className="lg:sticky lg:top-24 space-y-6">
+                        <div className="relative w-full overflow-hidden rounded-3xl bg-white/40 backdrop-blur-sm border border-slate-200/50 shadow-2xl shadow-indigo-100/20 group flex items-center justify-center min-h-[40vh] h-[50vh] md:h-[60vh] lg:h-[75vh]">
+                            <Image
+                                src={work.main_image.url}
+                                alt={work.title}
+                                fill
+                                className="object-contain transition-all duration-700 group-hover:scale-[1.01]"
+                                priority
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                            />
+                        </div>
+                    </div>
 
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 py-8 border-y border-border/60">
-                            <div>
-                                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-2">使用ツール</p>
-                                <p className="text-sm font-medium text-gray-900">{work.tools || "---"}</p>
+                    {/* Right Column: Info & Description */}
+                    <div className="space-y-12">
+                        {/* Title Section */}
+                        <header className="space-y-6">
+                            <h1 className="text-3xl md:text-5xl lg:text-5xl font-black tracking-tight text-slate-900 leading-tight text-balance break-words">
+                                {work.title}
+                            </h1>
+
+                            {/* Metadata Grid */}
+                            <div className="grid grid-cols-2 gap-6 py-8 border-y border-slate-100">
+                                <div>
+                                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">使用ツール</p>
+                                    <p className="text-sm font-bold text-slate-700">{work.tools || "---"}</p>
+                                </div>
+                                <div>
+                                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">制作期間</p>
+                                    <p className="text-sm font-bold text-slate-700">{work.duration || "---"}</p>
+                                </div>
+                                <div>
+                                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">クライアント</p>
+                                    <p className="text-sm font-bold text-slate-700">{work.client || "---"}</p>
+                                </div>
+                                <div>
+                                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">制作年</p>
+                                    <p className="text-sm font-bold text-slate-700">
+                                        {work.publishedAt ? new Date(work.publishedAt).getFullYear() : "---"}
+                                    </p>
+                                </div>
                             </div>
-                            <div>
-                                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-2">制作期間</p>
-                                <p className="text-sm font-medium text-gray-900">{work.duration || "---"}</p>
-                            </div>
-                            <div>
-                                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-2">クライアント</p>
-                                <p className="text-sm font-medium text-gray-900">{work.client || "---"}</p>
-                            </div>
-                            <div>
-                                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-2">制作年</p>
-                                <p className="text-sm font-medium text-gray-900">
-                                    {work.publishedAt ? new Date(work.publishedAt).getFullYear() : "---"}
-                                </p>
-                            </div>
+                        </header>
+
+                        {/* Description Section */}
+                        <div className="prose prose-slate prose-sm md:prose-base max-w-none 
+                            prose-headings:text-slate-900 prose-headings:font-bold prose-headings:tracking-tight
+                            prose-p:text-slate-600 prose-p:leading-relaxed
+                            prose-strong:text-slate-900 prose-strong:font-bold
+                            prose-li:text-slate-600
+                            prose-hr:border-slate-100">
+                            <div dangerouslySetInnerHTML={{ __html: work.description || "" }} />
+                        </div>
+
+                        {/* Bottom Navigation (Inside Right Column for Desktop Flow) */}
+                        <div className="pt-12 border-t border-slate-100 flex justify-start">
+                            <Link
+                                href="/"
+                                className="px-8 py-4 rounded-full bg-slate-100 text-slate-600 text-sm font-bold tracking-widest hover:bg-accent-blue hover:text-white transition-all duration-300 shadow-sm"
+                            >
+                                すべての作品を見る
+                            </Link>
                         </div>
                     </div>
                 </div>
-            </section>
-
-            {/* Main Content */}
-            <div className="container mx-auto px-6 max-w-6xl">
-                {/* Main Image - Fixed to prevent trimming */}
-                <div className="relative w-full overflow-hidden rounded-3xl bg-white/40 backdrop-blur-sm border border-slate-200/50 shadow-2xl shadow-indigo-100/20 mb-16 lg:mb-24 group flex items-center justify-center min-h-[40vh] max-h-[85vh] h-[50vh] md:h-[70vh] lg:h-[80vh]">
-                    <Image
-                        src={work.main_image.url}
-                        alt={work.title}
-                        fill
-                        className="object-contain transition-all duration-700 group-hover:scale-[1.01]"
-                        priority
-                        sizes="100vw"
-                    />
-                </div>
-
-                {/* Description */}
-                <div className="max-w-3xl mx-auto">
-                    <div className="prose prose-slate lg:prose-lg max-w-none prose-headings:tracking-tighter prose-headings:font-bold prose-p:leading-relaxed prose-p:text-gray-700">
-                        <div dangerouslySetInnerHTML={{ __html: work.description || "" }} />
-                    </div>
-                </div>
-            </div>
-
-            {/* Bottom Navigation */}
-            <div className="container mx-auto px-6 mt-32 max-w-6xl border-t border-border pt-16 flex justify-center">
-                <Link
-                    href="/"
-                    className="px-10 py-4 rounded-full border border-deep-sea text-sm font-bold tracking-widest hover:bg-deep-sea hover:text-white transition-all duration-300"
-                >
-                    すべての作品を見る
-                </Link>
             </div>
         </article>
     );

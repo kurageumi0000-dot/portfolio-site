@@ -28,6 +28,9 @@ export const getWorks = async (kind?: "original" | "fanart"): Promise<Work[]> =>
         const data = await client.get({
             endpoint: "works",
             queries: queries,
+            customRequestInit: {
+                cache: "no-store",
+            },
         });
 
         return data.contents;
@@ -42,6 +45,9 @@ export const getWorkDetail = async (id: string): Promise<Work | undefined> => {
         const data = await client.get({
             endpoint: "works",
             contentId: id,
+            customRequestInit: {
+                cache: "no-store",
+            },
         });
         return data;
     } catch (error) {
@@ -59,6 +65,9 @@ export const getNewsList = async (limit?: number): Promise<News[]> => {
         const data = await client.get({
             endpoint: "news",
             queries: queries,
+            customRequestInit: {
+                cache: "no-store",
+            },
         });
         return data.contents;
     } catch (error) {
@@ -72,6 +81,9 @@ export const getNewsDetail = async (id: string): Promise<News | undefined> => {
         const data = await client.get({
             endpoint: "news",
             contentId: id,
+            customRequestInit: {
+                cache: "no-store",
+            },
         });
         return data;
     } catch (error) {
@@ -131,6 +143,9 @@ export const getLinks = async (): Promise<SNSLink[]> => {
         const data = await client.get({
             endpoint: "links",
             queries: { orders: "publishedAt" },
+            customRequestInit: {
+                cache: "no-store",
+            },
         });
         return data.contents;
     } catch (error) {
@@ -147,6 +162,9 @@ export const getCommission = async (): Promise<Commission | undefined> => {
     try {
         const data = await client.get({
             endpoint: "commission",
+            customRequestInit: {
+                cache: "no-store",
+            },
         });
         // データがリスト形式で届くため、contents[0] を返す
         return data.contents[0];
@@ -163,6 +181,9 @@ export const getAbout = async (): Promise<About | undefined> => {
     try {
         const data = await client.get({
             endpoint: "about",
+            customRequestInit: {
+                cache: "no-store",
+            },
         });
         return data;
     } catch (error) {

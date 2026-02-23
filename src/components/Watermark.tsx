@@ -1,18 +1,13 @@
-import React from 'react';
-import Image from 'next/image';
-
 export default function Watermark() {
-    return (
-        <div className="absolute inset-0 z-10 pointer-events-none select-none overflow-hidden flex items-center justify-center">
-            {/* 以前のテキストベースのコードはすべて削除し、用意された画像（/watermark.png）を表示 */}
-            <div className="relative w-1/2 md:w-1/3 aspect-square opacity-30">
-                <Image
-                    src="/watermark.png"
-                    alt="Watermark"
-                    fill
-                    className="object-contain"
-                />
-            </div>
-        </div>
-    );
+  return (
+    <div 
+      className="absolute inset-0 z-10 pointer-events-none select-none opacity-40 mix-blend-multiply"
+      style={{ 
+        backgroundImage: 'url(/watermark.png)', 
+        backgroundSize: '200px', /* ここがパターンの「1マスの大きさ」です */
+        backgroundPosition: 'top left',
+        backgroundRepeat: 'repeat' /* ここが「繰り返し敷き詰める」の呪文です */
+      }}
+    />
+  );
 }

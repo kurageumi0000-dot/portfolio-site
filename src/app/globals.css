@@ -4,6 +4,7 @@
 @theme {
   --font-sans: "Inter", "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", "Noto Serif JP", ui-serif, Georgia, serif;
+  --color-accent-blue: #00C2FF;
 }
 
 :root {

@@ -3,6 +3,7 @@ import Link from "next/link";
 import WorkCard from "@/components/WorkCard";
 import { getWorks, getNewsList } from "@/libs/microcms";
 import { News } from "@/types/news";
+import LinksSection from "@/components/LinksSection";
 
 export default async function Home() {
     const works = await getWorks("original");
@@ -151,6 +152,8 @@ export default async function Home() {
                     </div>
                 </div>
             </section>
+            {/* 6. Links Section */}
+            <LinksSection />
         </div>
     );
 }

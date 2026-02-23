@@ -1,24 +1,34 @@
 import Link from "next/link";
 import { getLinks } from "@/libs/microcms";
 import { SNSLink } from "@/types/snsLink";
-import { Twitter, Mail, Globe, ExternalLink, ArrowLeft, Instagram, ShoppingCart, PenTool } from "lucide-react";
+import { Instagram, Mail, Globe, ExternalLink, ShoppingCart, PenTool, Youtube, ShoppingBag, Store, User } from "lucide-react";
 
 export default async function Footer() {
     const links = await getLinks();
 
     const getIcon = (type?: string) => {
-        switch (type?.toLowerCase()) {
+        const safeType = String(type || "").toLowerCase();
+        switch (safeType) {
             case "x":
             case "twitter":
                 return <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>;
             case "instagram":
                 return <Instagram size={20} />;
+            case "youtube":
+                return <Youtube size={20} />;
             case "pixiv":
                 return <PenTool size={20} />;
             case "skeb":
                 return <ShoppingCart size={20} />;
+            case "coconala":
+                return <Store size={20} />;
+            case "shopify":
+                return <ShoppingBag size={20} />;
+            case "skima":
+                return <User size={20} />;
             case "mail":
                 return <Mail size={20} />;
+            case "portfolio":
             case "globe":
             case "website":
                 return <Globe size={20} />;

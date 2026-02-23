@@ -46,7 +46,7 @@ export default async function WorkPage({ params }: Props) {
                                 {work.title}
                             </h1>
 
-                            {/* 【修正】ROLE, TOOLSを削除し、CLIENTとDATEのみに集約 */}
+                            {/* Metadata Grid */}
                             <div className="flex flex-wrap gap-x-12 gap-y-6 py-8 border-y border-slate-100">
                                 <div className="min-w-[120px]">
                                     <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">Client</p>
@@ -56,10 +56,9 @@ export default async function WorkPage({ params }: Props) {
                                 <div className="min-w-[120px]">
                                     <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">Date</p>
                                     <p className="text-sm font-bold text-slate-700">
-                                        {/* work.dateを優先し、なければ2026.02と表示 */}
-                                        {work.date 
-                                            ? new Date(work.date).toISOString().slice(0, 7).replace(/-/g, '.')
-                                            : "2026.02"}
+                                        {(work.date || work.publishedAt)
+                                            ? new Date(work.date || work.publishedAt).toISOString().slice(0, 7).replace(/-/g, '.')
+                                            : new Date().toISOString().slice(0, 7).replace(/-/g, '.')}
                                     </p>
                                 </div>
                             </div>

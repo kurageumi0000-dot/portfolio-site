@@ -1,39 +1,39 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getLinks } from "@/libs/microcms";
-import { Twitter, Mail, Globe, ExternalLink, ArrowLeft, Instagram, ShoppingBag, Palette, Youtube, Heart, CreditCard } from "lucide-react";
-
-// SNSLinkの型をここで直接定義して、TypeScriptのビルドエラーを根絶する
-type SNSLink = {
-    id: string;
-    title: string;
-    url: string;
-    iconType?: string;
-};
+import { SNSLink } from "@/types/snsLink";
+import { Twitter, Mail, Globe, ExternalLink, ArrowLeft, Instagram, ShoppingCart, PenTool, Youtube, ShoppingBag, Store, User } from "lucide-react";
 
 export default async function LinksPage() {
     const links = await getLinks();
 
     // microCMSの選択肢 に基づくアイコンマッピング
     const getSocialIcon = (link: SNSLink) => {
-        const type = link.iconType?.toLowerCase();
+        const type = String(link.iconType || "").toLowerCase();
         switch (type) {
             case "x":
+            case "twitter":
                 return <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>;
-            case "pixiv":
-                return <Palette size={20} />;
-            case "skeb":
-                return <Heart size={20} />;
             case "instagram":
                 return <Instagram size={20} />;
             case "youtube":
                 return <Youtube size={20} />;
-            case "portfolio":
-                return <Globe size={20} />;
+            case "mail":
+                return <Mail size={20} />;
+            case "pixiv":
+                return <PenTool size={20} />;
+            case "skeb":
+                return <ShoppingCart size={20} />;
             case "coconala":
-                return <CreditCard size={20} />;
-            case "skima":
+                return <Store size={20} />;
+            case "shopify":
                 return <ShoppingBag size={20} />;
+            case "skima":
+                return <User size={20} />;
+            case "portfolio":
+            case "globe":
+            case "website":
+                return <Globe size={20} />;
             default:
                 return <ExternalLink size={20} />;
         }

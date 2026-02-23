@@ -68,10 +68,10 @@ export default async function Home() {
                                             {new Date(item.date).toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '.')}
                                         </time>
                                         <span className={`text-[10px] font-black px-2 py-1 rounded uppercase tracking-tighter ${item.category === "New Work"
-                                                ? "bg-accent-blue/10 text-accent-blue"
-                                                : item.category === "Important"
-                                                    ? "bg-rose-50 text-rose-500"
-                                                    : "bg-slate-100 text-slate-500"
+                                            ? "bg-accent-blue/10 text-accent-blue"
+                                            : item.category === "Important"
+                                                ? "bg-rose-50 text-rose-500"
+                                                : "bg-slate-100 text-slate-500"
                                             }`}>
                                             {item.category}
                                         </span>

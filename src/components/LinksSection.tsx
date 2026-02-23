@@ -1,19 +1,30 @@
-import { Twitter, Mail, ExternalLink, ShoppingCart, PenTool, Globe } from "lucide-react";
+import { Twitter, Mail, ExternalLink, ShoppingCart, PenTool, Globe, Youtube, ShoppingBag, Store, User } from "lucide-react";
 import { getLinks } from "@/libs/microcms";
+import { SNSLink } from "@/types/snsLink";
 
 const getIcon = (type?: string) => {
-    switch (type?.toLowerCase()) {
+    const safeType = String(type || "").toLowerCase();
+    switch (safeType) {
         case "x":
         case "twitter":
             return <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>;
         case "instagram":
             return <Twitter size={20} />; // fallback if icon not found
+        case "youtube":
+            return <Youtube size={20} />;
         case "pixiv":
             return <PenTool size={20} />;
         case "skeb":
             return <ShoppingCart size={20} />;
+        case "coconala":
+            return <Store size={20} />;
+        case "shopify":
+            return <ShoppingBag size={20} />;
+        case "skima":
+            return <User size={20} />;
         case "mail":
             return <Mail size={20} />;
+        case "portfolio":
         case "globe":
         case "website":
             return <Globe size={20} />;
@@ -23,7 +34,8 @@ const getIcon = (type?: string) => {
 };
 
 const getColorClass = (type?: string) => {
-    switch (type?.toLowerCase()) {
+    const safeType = String(type || "").toLowerCase();
+    switch (safeType) {
         case "x":
         case "twitter":
             return "hover:bg-sky-50 hover:text-sky-600 hover:border-sky-200";
@@ -33,6 +45,8 @@ const getColorClass = (type?: string) => {
             return "hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200";
         case "mail":
             return "hover:bg-emerald-50 hover:text-emerald-600 hover:border-emerald-200";
+        case "youtube":
+            return "hover:bg-red-50 hover:text-red-600 hover:border-red-200";
         default:
             return "hover:bg-indigo-50 hover:text-indigo-600 hover:border-indigo-200";
     }

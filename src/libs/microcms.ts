@@ -3,6 +3,7 @@ import { Work } from "@/types/work";
 import { SNSLink } from "@/types/snsLink";
 import { Commission } from "@/types/commission";
 import { About } from "@/types/about";
+import { News } from "@/types/news";
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
     throw new Error("MICROCMS_SERVICE_DOMAIN is required");
@@ -45,6 +46,36 @@ export const getWorkDetail = async (id: string): Promise<Work | undefined> => {
         return data;
     } catch (error) {
         console.error(`Failed to fetch work detail for id ${id}:`, error);
+        return undefined;
+    }
+};
+
+export const getNewsList = async (limit?: number): Promise<News[]> => {
+    try {
+        const queries: any = { orders: "-date" };
+        if (limit) {
+            queries.limit = limit;
+        }
+        const data = await client.get({
+            endpoint: "news",
+            queries: queries,
+        });
+        return data.contents;
+    } catch (error) {
+        console.error("Failed to fetch news list:", error);
+        return [];
+    }
+};
+
+export const getNewsDetail = async (id: string): Promise<News | undefined> => {
+    try {
+        const data = await client.get({
+            endpoint: "news",
+            contentId: id,
+        });
+        return data;
+    } catch (error) {
+        console.error(`Failed to fetch news detail for id ${id}:`, error);
         return undefined;
     }
 };

@@ -26,11 +26,12 @@ export default async function LinksPage() {
                 {/* Profile Section */}
                 <div className="flex flex-col items-center mb-12 text-center pt-8 animate-fade-in-up">
                     <div className="relative w-28 h-28 mb-6 rounded-full overflow-hidden shadow-2xl shadow-indigo-100 bg-white border-4 border-white shrink-0 group">
-                        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-cyan-50 flex items-center justify-center">
-                            <span className="text-xl font-black tracking-tighter text-slate-300 select-none group-hover:scale-110 transition-transform duration-500">
-                                Icon
-                            </span>
-                        </div>
+                        <Image
+                            src="/icon.jpg"
+                            alt="海音くらげ"
+                            fill
+                            className="object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
                     </div>
                     <h1 className="text-3xl font-black tracking-tight mb-3 text-slate-900">海音くらげ</h1>
                     <p className="text-slate-500 text-sm leading-relaxed max-w-xs font-medium italic">

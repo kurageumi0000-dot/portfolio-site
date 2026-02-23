@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Sparkles, Award, Box, Zap } from "lucide-react";
 import { getAbout } from "@/libs/microcms";
 
@@ -35,11 +36,12 @@ export default async function AboutPage() {
                     <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16 animate-fade-in-up">
                         {/* Profile Image Section */}
                         <div className="relative w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden shadow-2xl shadow-indigo-100 bg-white border-4 border-white shrink-0">
-                            <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-cyan-50 flex items-center justify-center">
-                                <span className="text-xl font-black tracking-tighter text-slate-200 select-none">
-                                    Icon
-                                </span>
-                            </div>
+                            <Image
+                                src="/icon.jpg"
+                                alt="海音くらげ"
+                                fill
+                                className="object-cover"
+                            />
                         </div>
 
                         <div className="max-w-3xl text-center md:text-left">

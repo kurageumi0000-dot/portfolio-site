@@ -1,3 +1,4 @@
+import Image from "next/image";
 import WorkCard from "@/components/WorkCard";
 import { getWorks } from "@/libs/microcms";
 
@@ -12,11 +13,13 @@ export default async function Home() {
                     <section className="max-w-4xl flex flex-col md:flex-row items-center gap-10 lg:gap-16">
                         {/* Profile Image */}
                         <div className="relative w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden shadow-2xl shadow-accent-blue/20 bg-white border-4 border-white shrink-0 animate-fade-in-up">
-                            <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-transparent" />
-                            {/* Placeholder for now, but following the instruction to use round image枠 */}
-                            <div className="w-full h-full flex items-center justify-center text-accent-blue/30 font-black text-2xl uppercase tracking-tighter">
-                                Icon
-                            </div>
+                            <Image
+                                src="/icon.jpg"
+                                alt="海音くらげ"
+                                fill
+                                className="object-cover"
+                                priority
+                            />
                         </div>
 
                         <div className="animate-fade-in-up-delay-1 text-center md:text-left">

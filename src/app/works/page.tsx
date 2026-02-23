@@ -14,7 +14,7 @@ export default async function WorksListPage() {
                         実績
                     </h1>
                     <p className="text-lg text-slate-600 font-medium max-w-2xl">
-                        これまでご依頼いただき制作してきたプロジェクトの実績一覧です。ご依頼の際の参考にしてください。
+                        これまで制作してきたオリジナルイラストレーションと、ご依頼いただいたプロジェクトの実績一覧です。
                     </p>
                 </div>
             </div>

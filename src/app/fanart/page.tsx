@@ -35,7 +35,7 @@ export default async function FanartPage() {
                                 創作・FA
                             </h1>
                             <p className="mt-8 text-base lg:text-xl text-slate-600 leading-relaxed max-w-2xl font-medium">
-                                好きな作品やキャラクターへの愛を込めて制作した二次創作作品および、個人の創作イラスト集です。ガイドラインを遵守し、敬意を持って表現することを目指しています。
+                                愛を込めて制作した二次創作作品および、個人の創作イラスト集です。ガイドラインを遵守し表現することを目指しています。
                             </p>
                         </div>
                     </section>

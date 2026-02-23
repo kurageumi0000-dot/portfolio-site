@@ -7,16 +7,26 @@ export default async function LinksPage() {
     const links = await getLinks();
 
     // Mapping for common social icons
-    const getSocialIcon = (title: string, url: string) => {
-        const lowerTitle = title.toLowerCase();
-        const lowerUrl = url.toLowerCase();
-        if (lowerTitle.includes("x") || lowerUrl.includes("x.com") || lowerUrl.includes("twitter.com")) {
-            return <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>;
+    const getSocialIcon = (link: SNSLink) => {
+        const type = link.iconType?.toLowerCase();
+        switch (type) {
+            case "x":
+            case "twitter":
+                return <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>;
+            case "instagram":
+                return <Instagram size={20} />;
+            case "mail":
+                return <Mail size={20} />;
+            case "pixiv":
+                return <PenTool size={20} />;
+            case "skeb":
+                return <ShoppingCart size={20} />;
+            case "globe":
+            case "website":
+                return <Globe size={20} />;
+            default:
+                return <ExternalLink size={20} />;
         }
-        if (lowerTitle.includes("instagram") || lowerUrl.includes("instagram.com")) return <Instagram size={20} />;
-        if (lowerTitle.includes("mail") || lowerUrl.includes("mailto:")) return <Mail size={20} />;
-        if (lowerTitle.includes("portfolio") || lowerTitle.includes("公式サイト")) return <Globe size={20} />;
-        return <ExternalLink size={20} />;
     };
 
     return (
@@ -52,7 +62,7 @@ export default async function LinksPage() {
                             >
                                 <div className="flex items-center gap-5">
                                     <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-accent-blue/10 group-hover:text-accent-blue transition-colors duration-300">
-                                        {getSocialIcon(link.title, link.url)}
+                                        {getSocialIcon(link)}
                                     </div>
                                     <span className="font-bold text-lg tracking-tight text-slate-700 group-hover:text-slate-900 transition-colors">{link.title}</span>
                                 </div>

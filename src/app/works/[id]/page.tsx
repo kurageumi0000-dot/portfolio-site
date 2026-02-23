@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getWorkDetail, getWorks } from "@/libs/microcms";
-import Watermark from "@/components/Watermark";
+import ProtectedImage from "@/components/ProtectedImage";
 
 type Props = {
     params: Promise<{ id: string }>;
@@ -42,17 +42,12 @@ export default async function WorkPage({ params }: Props) {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
                     {/* Left Column: Image (Sticky on Desktop) */}
                     <div className="lg:sticky lg:top-24 space-y-6 flex justify-center w-full">
-                        <div className="relative w-fit h-fit overflow-hidden rounded-3xl bg-white/40 backdrop-blur-sm border border-slate-200/50 shadow-2xl shadow-indigo-100/20 group flex items-center justify-center">
-                            <Image
-                                src={work.main_image.url}
-                                alt={work.title}
-                                width={work.main_image.width}
-                                height={work.main_image.height}
-                                className="w-auto h-auto max-h-[75vh] max-w-full object-contain transition-all duration-700 group-hover:scale-[1.01]"
-                                priority
-                            />
-                            <Watermark />
-                        </div>
+                        <ProtectedImage
+                            src={work.main_image.url}
+                            alt={work.title}
+                            width={work.main_image.width}
+                            height={work.main_image.height}
+                        />
                     </div>
 
                     {/* Right Column: Info & Description */}

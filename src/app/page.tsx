@@ -1,13 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import WorkCard from "@/components/WorkCard";
-import { getWorks, getNewsList } from "@/libs/microcms";
-import { News } from "@/types/news";
+import { getWorks, getHybridFeed } from "@/libs/microcms";
 import LinksSection from "@/components/LinksSection";
 
 export default async function Home() {
     const works = await getWorks("original");
-    const newsItems = await getNewsList(3);
+    const feedItems = await getHybridFeed(3);
 
     return (
         <div className="pb-0">
@@ -57,29 +56,34 @@ export default async function Home() {
                     </div>
 
                     <div className="space-y-1">
-                        {newsItems.length > 0 ? (
-                            newsItems.map((news: News) => (
-                                <Link key={news.id} href={`/news/${news.id}`} className="group flex flex-col md:flex-row md:items-center gap-4 md:gap-12 py-8 transition-all hover:translate-x-2">
-                                    <div className="flex items-center gap-6 shrink-0">
-                                        <time className="text-sm font-black text-slate-300 tabular-nums">
-                                            {new Date(news.date).toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '.')}
+                        {feedItems.length > 0 ? (
+                            feedItems.map((item) => (
+                                <Link
+                                    key={item.id}
+                                    href={item.type === "work" ? `/works/${item.id}` : `/news/${item.id}`}
+                                    className="group flex flex-col md:flex-row md:items-center gap-2 md:gap-8 py-6 border-b border-slate-100 hover:bg-slate-50/50 transition-all px-4 -mx-4 rounded-xl"
+                                >
+                                    <div className="flex items-center gap-4 shrink-0">
+                                        <time className="text-xs font-black tracking-widest text-slate-400 tabular-nums">
+                                            {new Date(item.date).toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '.')}
                                         </time>
-                                        <span className={`px-4 py-1 text-[10px] font-black tracking-widest uppercase rounded-full border ${news.category === 'Important' ? 'bg-rose-50 text-rose-500 border-rose-100' :
-                                            news.category === 'Update' ? 'bg-blue-50 text-blue-500 border-blue-100' :
-                                                news.category === 'Event' ? 'bg-amber-50 text-amber-500 border-amber-100' :
-                                                    'bg-slate-50 text-slate-500 border-slate-100'
+                                        <span className={`text-[10px] font-black px-2 py-1 rounded uppercase tracking-tighter ${item.category === "New Work"
+                                                ? "bg-accent-blue/10 text-accent-blue"
+                                                : item.category === "Important"
+                                                    ? "bg-rose-50 text-rose-500"
+                                                    : "bg-slate-100 text-slate-500"
                                             }`}>
-                                            {news.category}
+                                            {item.category}
                                         </span>
                                     </div>
-                                    <h4 className="flex-grow text-lg md:text-xl font-bold text-slate-800 group-hover:text-accent-blue transition-colors">
-                                        {news.title}
-                                    </h4>
-                                    <span className="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity text-accent-blue font-black">→</span>
+                                    <span className="text-sm md:text-base font-bold text-slate-700 group-hover:text-slate-900 transition-colors line-clamp-1">
+                                        {item.title}
+                                    </span>
+                                    <span className="ml-auto text-slate-300 group-hover:text-accent-blue transition-transform group-hover:translate-x-1 hidden md:block">→</span>
                                 </Link>
                             ))
                         ) : (
-                            <p className="text-slate-400 py-10 font-medium italic">No news to display.</p>
+                            <p className="text-slate-400 py-10 font-medium italic">No announcements to display.</p>
                         )}
                     </div>
                 </div>

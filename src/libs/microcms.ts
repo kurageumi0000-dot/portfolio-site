@@ -80,6 +80,49 @@ export const getNewsDetail = async (id: string): Promise<News | undefined> => {
     }
 };
 
+export type FeedItem = {
+    id: string;
+    title: string;
+    date: string;
+    category: string;
+    type: "work" | "news";
+};
+
+/**
+ * Fetch both works and news, merge them, and sort by date
+ */
+export const getHybridFeed = async (limit: number = 3): Promise<FeedItem[]> => {
+    try {
+        const [works, news] = await Promise.all([
+            getWorks(),
+            getNewsList(limit * 2) // Fetch a bit more to ensure we have enough after merging
+        ]);
+
+        const workItems: FeedItem[] = works.map(work => ({
+            id: work.id,
+            title: work.title,
+            date: work.publishedAt || work.date || "",
+            category: "New Work",
+            type: "work"
+        }));
+
+        const newsItems: FeedItem[] = news.map(item => ({
+            id: item.id,
+            title: item.title,
+            date: item.date || item.publishedAt || "",
+            category: item.category,
+            type: "news"
+        }));
+
+        return [...workItems, ...newsItems]
+            .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+            .slice(0, limit);
+    } catch (error) {
+        console.error("Failed to fetch hybrid feed:", error);
+        return [];
+    }
+};
+
 /**
  * Fetch links from microCMS 'links' endpoint
  */

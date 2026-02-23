@@ -59,24 +59,25 @@ export default async function WorkPage({ params }: Props) {
                             </h1>
 
                             {/* Metadata Grid */}
-                            <div className="grid grid-cols-2 gap-6 py-8 border-y border-slate-100">
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 border-y border-slate-100">
                                 <div>
-                                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">使用ツール</p>
-                                    <p className="text-sm font-bold text-slate-700">{work.tools || "---"}</p>
-                                </div>
-                                <div>
-                                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">制作期間</p>
-                                    <p className="text-sm font-bold text-slate-700">{work.duration || "---"}</p>
-                                </div>
-                                <div>
-                                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">クライアント</p>
+                                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">Client</p>
                                     <p className="text-sm font-bold text-slate-700">{work.client || "---"}</p>
                                 </div>
+                                <div className="hidden md:block w-px h-8 bg-slate-100 self-center" />
                                 <div>
-                                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">制作年</p>
-                                    <p className="text-sm font-bold text-slate-700">
-                                        {work.publishedAt ? new Date(work.publishedAt).getFullYear() : "---"}
-                                    </p>
+                                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">Date</p>
+                                    <p className="text-sm font-bold text-slate-700">{work.date || "---"}</p>
+                                </div>
+                                <div className="hidden md:block w-px h-8 bg-slate-100 self-center" />
+                                <div>
+                                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">Role</p>
+                                    <p className="text-sm font-bold text-slate-700">{work.role || "---"}</p>
+                                </div>
+                                <div className="hidden md:block w-px h-8 bg-slate-100 self-center" />
+                                <div>
+                                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">Tools</p>
+                                    <p className="text-sm font-bold text-slate-700">{work.tools || "---"}</p>
                                 </div>
                             </div>
                         </header>

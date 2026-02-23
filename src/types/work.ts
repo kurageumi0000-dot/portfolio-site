@@ -7,7 +7,8 @@ export type Work = {
         height: number;
     };
     tools: string;
-    duration: string;
+    role?: string;
+    date?: string;
     client: string;
     description: string;
     kind: string[];

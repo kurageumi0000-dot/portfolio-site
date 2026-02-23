@@ -3,10 +3,22 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getWorkDetail, getWorks } from "@/libs/microcms";
 import ProtectedImage from "@/components/ProtectedImage";
+import { Metadata } from "next";
 
 type Props = {
     params: Promise<{ id: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { id } = await params;
+    const work = await getWorkDetail(id);
+    if (!work) return { title: "Work Not Found" };
+
+    return {
+        title: `${work.title} | 海音くらげ Portfolio`,
+        description: work.description.replace(/<[^>]*>?/gm, '').slice(0, 160),
+    };
+}
 
 export async function generateStaticParams() {
     const works = await getWorks();
@@ -15,17 +27,32 @@ export async function generateStaticParams() {
     }));
 }
 
-// ... (上部のインポートやgenerateStaticParamsは維持)
-
 export default async function WorkPage({ params }: Props) {
     const { id } = await params;
     const work = await getWorkDetail(id);
 
     if (!work) notFound();
 
-    const isFanart = work.kind?.includes("fanart");
-    const backLink = isFanart ? "/fanart" : "/";
-    const backLabel = isFanart ? "ファンアート一覧へ戻る" : "作品一覧へ戻る";
+    // kindが配列でない場合（単一選択など）への考慮も含めた安全な判定
+    const isFanart = Array.isArray(work.kind)
+        ? work.kind.includes("fanart")
+        : work.kind === "fanart";
+
+    const backLink = isFanart ? "/fanart" : "/works";
+    const backLabel = isFanart ? "創作・FA一覧へ戻る" : "実績一覧へ戻る";
+
+    // 日付の安全なパース
+    const displayDate = (() => {
+        try {
+            const dateStr = work.date || work.publishedAt;
+            if (!dateStr) return new Date().toISOString().slice(0, 7).replace(/-/g, '.');
+            const d = new Date(dateStr);
+            if (isNaN(d.getTime())) return new Date().toISOString().slice(0, 7).replace(/-/g, '.');
+            return d.toISOString().slice(0, 7).replace(/-/g, '.');
+        } catch {
+            return new Date().toISOString().slice(0, 7).replace(/-/g, '.');
+        }
+    })();
 
     return (
         <article className="pb-32 pt-8 lg:pt-16">
@@ -37,7 +64,18 @@ export default async function WorkPage({ params }: Props) {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
                     <div className="lg:sticky lg:top-24 flex justify-center w-full">
-                        <ProtectedImage src={work.main_image.url} alt={work.title} width={work.main_image.width} height={work.main_image.height} />
+                        {work.main_image ? (
+                            <ProtectedImage
+                                src={work.main_image.url}
+                                alt={work.title}
+                                width={work.main_image.width}
+                                height={work.main_image.height}
+                            />
+                        ) : (
+                            <div className="w-full aspect-[4/3] bg-slate-100 rounded-3xl flex items-center justify-center text-slate-400">
+                                No Image
+                            </div>
+                        )}
                     </div>
 
                     <div className="space-y-12">
@@ -56,9 +94,7 @@ export default async function WorkPage({ params }: Props) {
                                 <div className="min-w-[120px]">
                                     <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">Date</p>
                                     <p className="text-sm font-bold text-slate-700">
-                                        {(work.date || work.publishedAt)
-                                            ? new Date(work.date || work.publishedAt).toISOString().slice(0, 7).replace(/-/g, '.')
-                                            : new Date().toISOString().slice(0, 7).replace(/-/g, '.')}
+                                        {displayDate}
                                     </p>
                                 </div>
                             </div>

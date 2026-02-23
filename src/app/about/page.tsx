@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Sparkles, Award, Box, Zap, Cloud } from "lucide-react";
+import { ArrowRight, Sparkles, Award, Box, Zap } from "lucide-react";
 import { getAbout } from "@/libs/microcms";
 
 export default async function AboutPage() {
@@ -17,39 +17,40 @@ export default async function AboutPage() {
         {
             title: "Service",
             content: about.service,
-            icon: <Box className="w-6 h-6 text-cyan-500" />
+            icon: <Box className="w-5 h-5" />
         },
         {
             title: "Environment",
             content: about.environment,
-            icon: <Zap className="w-6 h-6 text-cyan-500" />
+            icon: <Zap className="w-5 h-5" />
         }
     ];
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-[#e0f7ff] via-white to-white text-zinc-800 selection:bg-accent-blue/20 selection:text-accent-blue overflow-hidden relative">
 
-            {/* Background Decorations (Bubbles) */}
+            {/* Background Decorations (Floating Bubbles) */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0">
-                <div className="absolute top-[10%] left-[5%] w-64 h-64 bg-accent-blue/5 rounded-full blur-3xl animate-pulse" />
-                <div className="absolute top-[40%] right-[10%] w-96 h-96 bg-accent-blue/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-                <div className="absolute bottom-[20%] left-[15%] w-80 h-80 bg-cyan-100/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
+                <div className="absolute top-[10%] left-[5%] w-48 h-48 bg-accent-blue/5 rounded-full blur-3xl animate-float-slow" />
+                <div className="absolute top-[40%] right-[10%] w-72 h-72 bg-accent-blue/8 rounded-full blur-3xl animate-float-medium" style={{ animationDelay: '2s' }} />
+                <div className="absolute bottom-[20%] left-[15%] w-56 h-56 bg-cyan-100/20 rounded-full blur-3xl animate-float-slow" style={{ animationDelay: '4s' }} />
 
-                {/* Floating Bubbles */}
-                <div className="absolute top-[15%] right-[20%] w-4 h-4 bg-accent-blue/20 rounded-full blur-[1px]" />
-                <div className="absolute top-[25%] left-[10%] w-2 h-2 bg-accent-blue/30 rounded-full blur-[0.5px]" />
-                <div className="absolute top-[60%] right-[5%] w-6 h-6 bg-accent-blue/10 rounded-full blur-[2px]" />
+                {/* Small floating bubbles */}
+                <div className="absolute top-[15%] right-[20%] w-3 h-3 bg-accent-blue/20 rounded-full animate-float-fast" />
+                <div className="absolute top-[30%] left-[8%] w-2 h-2 bg-accent-blue/25 rounded-full animate-float-medium" style={{ animationDelay: '1s' }} />
+                <div className="absolute top-[55%] right-[5%] w-4 h-4 bg-accent-blue/10 rounded-full animate-float-slow" style={{ animationDelay: '3s' }} />
+                <div className="absolute top-[70%] left-[25%] w-2.5 h-2.5 bg-accent-blue/15 rounded-full animate-float-fast" style={{ animationDelay: '2s' }} />
             </div>
 
             {/* Hero Section */}
-            <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 z-10">
+            <section className="relative pt-24 pb-16 lg:pt-40 lg:pb-24 z-10">
                 <div className="container mx-auto px-6">
-                    <div className="max-w-4xl">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 text-accent-blue text-xs font-bold uppercase tracking-widest mb-8 border border-accent-blue/20">
-                            <Sparkles size={14} />
+                    <div className="max-w-3xl animate-fade-in-up">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 text-accent-blue text-[10px] font-bold uppercase tracking-widest mb-6 border border-accent-blue/20">
+                            <Sparkles size={12} />
                             <span>About Me</span>
                         </div>
-                        <h1 className="text-4xl md:text-6xl lg:text-8xl font-black tracking-tighter mb-12 leading-[1.1] md:leading-[0.9] text-zinc-900 text-balance break-keep">
+                        <h1 className="text-3xl md:text-5xl font-black tracking-tight mb-6 leading-[1.15] text-zinc-900 text-balance break-keep">
                             {about.title}<span className="text-accent-blue">.</span>
                         </h1>
                     </div>
@@ -57,49 +58,48 @@ export default async function AboutPage() {
             </section>
 
             {/* Wave Separator Top */}
-            <div className="w-full h-24 lg:h-32 -mt-1 relative z-10 text-zinc-50 fill-current">
-                <svg viewBox="0 0 1440 120" className="w-full h-full preserve-3d">
+            <div className="w-full h-16 lg:h-24 -mt-1 relative z-10 text-zinc-50 fill-current">
+                <svg viewBox="0 0 1440 120" className="w-full h-full" preserveAspectRatio="none">
                     <path d="M0,32L60,42.7C120,53,240,75,360,74.7C480,75,600,53,720,48C840,43,960,53,1080,58.7C1200,64,1320,64,1380,64L1440,64L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"></path>
                 </svg>
             </div>
 
             {/* Achievement Section */}
-            <section className="py-24 bg-zinc-50/80 backdrop-blur-sm border-y border-zinc-100 relative z-10">
-                <div className="container mx-auto px-6 text-center">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-white shadow-sm border border-zinc-100 mb-8 text-accent-blue">
-                        <Award className="w-8 h-8" />
+            <section className="py-16 lg:py-20 bg-zinc-50/80 backdrop-blur-sm border-y border-zinc-100 relative z-10">
+                <div className="container mx-auto px-6 text-center animate-fade-in-up-delay-1">
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-white shadow-sm border border-zinc-100 mb-6 text-accent-blue">
+                        <Award className="w-6 h-6" />
                     </div>
-                    <p className="text-zinc-500 font-bold tracking-widest uppercase text-sm mb-4">Total Achievements</p>
+                    <p className="text-zinc-400 font-bold tracking-widest uppercase text-xs mb-3">Total Achievements</p>
                     <div className="flex flex-col items-center">
-                        <div className="flex items-baseline justify-center gap-1 text-zinc-900">
-                            <span className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-accent-blue drop-shadow-sm">
+                        <div className="flex items-baseline justify-center gap-1">
+                            <span className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-accent-blue drop-shadow-sm">
                                 {about.achievements_count}
                             </span>
-                            <span className="text-xl md:text-3xl lg:text-4xl font-bold text-accent-blue/60">件</span>
+                            <span className="text-lg md:text-2xl lg:text-3xl font-bold text-accent-blue/60">件</span>
                         </div>
-                        <div className="w-16 md:w-24 h-1 md:h-1.5 bg-accent-blue rounded-full mt-6 md:mt-8 shadow-lg shadow-accent-blue/20" />
+                        <div className="w-12 md:w-20 h-0.5 md:h-1 bg-accent-blue rounded-full mt-5 md:mt-6 shadow-lg shadow-accent-blue/20" />
                     </div>
                 </div>
             </section>
 
             {/* Wave Separator Bottom */}
-            <div className="w-full h-24 lg:h-32 text-zinc-50 fill-current rotate-180 -mt-1 relative z-10">
-                <svg viewBox="0 0 1440 120" className="w-full h-full preserve-3d">
+            <div className="w-full h-16 lg:h-24 text-zinc-50 fill-current rotate-180 -mt-1 relative z-10">
+                <svg viewBox="0 0 1440 120" className="w-full h-full" preserveAspectRatio="none">
                     <path d="M0,32L60,42.7C120,53,240,75,360,74.7C480,75,600,53,720,48C840,43,960,53,1080,58.7C1200,64,1320,64,1380,64L1440,64L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"></path>
                 </svg>
             </div>
 
             {/* Main Content Section */}
-            <section className="py-24 lg:py-32 relative z-10">
+            <section className="py-16 lg:py-24 relative z-10">
                 <div className="container mx-auto px-6">
-                    <div className="max-w-4xl mx-auto">
+                    <div className="max-w-3xl mx-auto animate-fade-in-up-delay-2">
                         <div
-                            className="prose prose-zinc prose-lg lg:prose-xl max-w-none 
-              prose-headings:text-zinc-900 prose-headings:font-black prose-headings:tracking-tight
-              prose-headers:border-l-4 prose-headers:border-accent-blue prose-headers:pl-6
-              prose-p:text-zinc-600 prose-p:leading-relaxed
+                            className="prose prose-zinc prose-sm md:prose-base max-w-none 
+              prose-headings:text-zinc-900 prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-base md:prose-headings:text-lg
+              prose-p:text-zinc-600 prose-p:leading-7 prose-p:text-sm md:prose-p:text-base
               prose-strong:text-zinc-900 prose-strong:font-bold
-              prose-li:text-zinc-700
+              prose-li:text-zinc-700 prose-li:text-sm md:prose-li:text-base
               prose-hr:border-zinc-100"
                             dangerouslySetInnerHTML={{ __html: about.content }}
                         />
@@ -108,21 +108,25 @@ export default async function AboutPage() {
             </section>
 
             {/* Service & Environment Sections */}
-            <section className="pb-32 lg:pb-48 relative z-10">
+            <section className="pb-20 lg:pb-32 relative z-10">
                 <div className="container mx-auto px-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12">
-                        {secondarySections.map((section) => (
-                            <div key={section.title} className="bg-white/80 backdrop-blur-md p-8 md:p-10 lg:p-14 rounded-2xl md:rounded-[2.5rem] border border-zinc-100 shadow-sm hover:shadow-xl hover:shadow-accent-blue/5 transition-all transition-duration-500">
-                                <div className="flex items-center gap-4 mb-8">
-                                    <div className="p-3 rounded-2xl bg-accent-blue/10 text-accent-blue">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-8">
+                        {secondarySections.map((section, index) => (
+                            <div
+                                key={section.title}
+                                className="bg-white/80 backdrop-blur-md p-6 md:p-8 lg:p-10 rounded-2xl md:rounded-3xl border border-zinc-100 shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-accent-blue/5 transition-all duration-300 animate-fade-in-up"
+                                style={{ animationDelay: `${0.2 + index * 0.15}s` }}
+                            >
+                                <div className="flex items-center gap-3 mb-6">
+                                    <div className="p-2.5 rounded-xl bg-accent-blue/10 text-accent-blue">
                                         {section.icon}
                                     </div>
-                                    <h3 className="text-2xl font-black text-zinc-900 tracking-tight border-b-2 border-accent-blue/20 pb-1">{section.title}</h3>
+                                    <h3 className="text-lg font-bold text-zinc-900 tracking-tight">{section.title}</h3>
                                 </div>
                                 <div
-                                    className="prose prose-zinc prose-base max-w-none 
-                  prose-p:text-zinc-500 prose-p:leading-relaxed
-                  prose-li:text-zinc-600
+                                    className="prose prose-zinc prose-sm max-w-none 
+                  prose-p:text-zinc-500 prose-p:leading-7 prose-p:text-sm
+                  prose-li:text-zinc-600 prose-li:text-sm
                   prose-strong:text-zinc-900"
                                     dangerouslySetInnerHTML={{ __html: section.content }}
                                 />
@@ -133,22 +137,22 @@ export default async function AboutPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="container mx-auto px-6 pb-20 md:pb-32 lg:pb-48 relative z-10">
-                <div className="bg-zinc-900 rounded-2xl md:rounded-[3rem] p-8 md:p-12 lg:p-24 text-center overflow-hidden relative group">
+            <section className="container mx-auto px-6 pb-16 md:pb-24 lg:pb-32 relative z-10">
+                <div className="bg-zinc-900 rounded-2xl md:rounded-[2.5rem] p-8 md:p-12 lg:p-20 text-center overflow-hidden relative group animate-fade-in-up-delay-3">
                     {/* Subtle decoration */}
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-accent-blue/20 rounded-full blur-3xl -mr-48 -mt-48 transition-transform group-hover:scale-110" />
-                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-blue/10 rounded-full blur-3xl -ml-48 -mb-48 transition-transform group-hover:scale-110" />
+                    <div className="absolute top-0 right-0 w-72 h-72 bg-accent-blue/20 rounded-full blur-3xl -mr-36 -mt-36 transition-transform duration-700 group-hover:scale-110" />
+                    <div className="absolute bottom-0 left-0 w-72 h-72 bg-accent-blue/10 rounded-full blur-3xl -ml-36 -mb-36 transition-transform duration-700 group-hover:scale-110" />
 
-                    <h2 className="text-2xl md:text-4xl lg:text-6xl font-black text-white tracking-tighter mb-8 md:mb-12 relative z-10 leading-tight text-balance">
+                    <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight mb-6 md:mb-10 relative z-10 leading-snug text-balance">
                         制作のご依頼については<br className="hidden md:block" />こちらをご確認ください。
                     </h2>
 
                     <Link
                         href="/commission"
-                        className="group relative inline-flex items-center gap-4 px-12 py-6 bg-accent-blue text-white font-black rounded-full transition-all hover:bg-accent-blue/80 hover:scale-105 active:scale-95 shadow-2xl shadow-accent-blue/20 relative z-10"
+                        className="inline-flex items-center gap-3 px-8 py-4 md:px-10 md:py-5 bg-accent-blue text-white font-bold rounded-full transition-all duration-300 hover:bg-accent-blue/80 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-accent-blue/30 active:scale-95 relative z-10"
                     >
-                        <span className="text-lg">ご依頼の詳細はこちら</span>
-                        <ArrowRight size={24} className="transition-transform group-hover:translate-x-2" />
+                        <span className="text-sm md:text-base">ご依頼の詳細はこちら</span>
+                        <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
                     </Link>
                 </div>
             </section>

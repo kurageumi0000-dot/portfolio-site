@@ -78,7 +78,7 @@ export default async function LinksSection() {
                                 {getIcon(link.iconType)}
                             </div>
                             <span className="font-bold text-sm tracking-widest uppercase">
-                                {link.title}
+                                {link.title || link.name}
                             </span>
                         </a>
                     ))}

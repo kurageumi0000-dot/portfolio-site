@@ -74,7 +74,7 @@ export default async function LinksPage() {
                                     <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-accent-blue/10 group-hover:text-accent-blue transition-colors duration-300">
                                         {getSocialIcon(link)}
                                     </div>
-                                    <span className="font-bold text-lg tracking-tight text-slate-700 group-hover:text-slate-900 transition-colors">{link.title}</span>
+                                    <span className="font-bold text-lg tracking-tight text-slate-700 group-hover:text-slate-900 transition-colors">{link.title || link.name}</span>
                                 </div>
                                 <div className="text-slate-300 group-hover:text-accent-blue transition-all duration-500 translate-x-1 group-hover:translate-x-0">
                                     <ArrowLeft size={18} className="rotate-180" />

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Zen_Kaku_Gothic_New } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 import Header from "@/components/Header";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -65,9 +66,15 @@ export default function RootLayout({
                     <footer className="py-16 mt-20 border-t border-slate-100 bg-white/50 backdrop-blur-sm">
                         <div className="container mx-auto px-6 flex flex-col items-center gap-8">
                             <span className="text-xl font-black tracking-tighter text-slate-900 italic">海音くらげ</span>
-                            <p className="text-sm text-slate-500 font-medium">
-                                &copy; {new Date().getFullYear()} 海音くらげ. All rights reserved.
-                            </p>
+                            <div className="flex items-center gap-6">
+                                <p className="text-sm text-slate-500 font-medium">
+                                    &copy; {new Date().getFullYear()} 海音くらげ. All rights reserved.
+                                </p>
+                                <span className="w-1 h-1 rounded-full bg-slate-200 hidden sm:block" />
+                                <Link href="/privacy" className="text-xs text-slate-400 hover:text-accent-blue transition-colors font-bold tracking-widest uppercase">
+                                    Privacy Policy
+                                </Link>
+                            </div>
                             <div className="flex gap-8">
                                 <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>

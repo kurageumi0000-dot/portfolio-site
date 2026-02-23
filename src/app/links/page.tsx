@@ -1,39 +1,47 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getLinks } from "@/libs/microcms";
-import { SNSLink } from "@/types/snsLink";
-import { Twitter, Mail, Globe, ExternalLink, ArrowLeft, Instagram, ShoppingCart, PenTool } from "lucide-react";
+import { Twitter, Mail, Globe, ExternalLink, ArrowLeft, Instagram, ShoppingBag, Palette, Youtube, Heart, CreditCard } from "lucide-react";
+
+// SNSLinkの型をここで直接定義して、TypeScriptのビルドエラーを根絶する
+type SNSLink = {
+    id: string;
+    title: string;
+    url: string;
+    iconType?: string;
+};
 
 export default async function LinksPage() {
     const links = await getLinks();
 
-    // Mapping for common social icons
+    // microCMSの選択肢 に基づくアイコンマッピング
     const getSocialIcon = (link: SNSLink) => {
         const type = link.iconType?.toLowerCase();
         switch (type) {
             case "x":
-            case "twitter":
                 return <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>;
+            case "pixiv":
+                return <Palette size={20} />;
+            case "skeb":
+                return <Heart size={20} />;
             case "instagram":
                 return <Instagram size={20} />;
-            case "mail":
-                return <Mail size={20} />;
-            case "pixiv":
-                return <PenTool size={20} />;
-            case "skeb":
-                return <ShoppingCart size={20} />;
-            case "globe":
-            case "website":
+            case "youtube":
+                return <Youtube size={20} />;
+            case "portfolio":
                 return <Globe size={20} />;
+            case "coconala":
+                return <CreditCard size={20} />;
+            case "skima":
+                return <ShoppingBag size={20} />;
             default:
                 return <ExternalLink size={20} />;
         }
     };
 
     return (
-        <div className="min-h-screen text-slate-800 selection:bg-accent-blue/10 selection:text-accent-blue font-sans">
+        <div className="min-h-screen text-slate-800 selection:bg-accent-blue/10 selection:text-accent-blue font-sans bg-gradient-to-b from-slate-50 to-white">
             <div className="container mx-auto px-6 py-16 max-w-xl flex flex-col min-h-screen items-center">
-
                 {/* Profile Section */}
                 <div className="flex flex-col items-center mb-12 text-center pt-8 animate-fade-in-up">
                     <div className="relative w-28 h-28 mb-6 rounded-full overflow-hidden shadow-2xl shadow-indigo-100 bg-white border-4 border-white shrink-0 group">
@@ -42,6 +50,7 @@ export default async function LinksPage() {
                             alt="海音くらげ"
                             fill
                             className="object-cover group-hover:scale-110 transition-transform duration-500"
+                            priority
                         />
                     </div>
                     <h1 className="text-3xl font-black tracking-tight mb-3 text-slate-900">海音くらげ</h1>
@@ -50,7 +59,7 @@ export default async function LinksPage() {
                     </p>
                 </div>
 
-                {/* Links Section - Mobile First Large Buttons */}
+                {/* Links Section */}
                 <div className="w-full space-y-4 mb-20 flex-grow animate-fade-in-up-delay-1">
                     {links.length > 0 ? (
                         links.map((link) => (

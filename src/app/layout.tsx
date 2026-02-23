@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Sans_JP } from "next/font/google";
+import { Inter, Zen_Kaku_Gothic_New } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { Analytics } from "@vercel/analytics/react";
@@ -10,17 +10,17 @@ const inter = Inter({
     display: "swap",
 });
 
-const notoJp = Noto_Sans_JP({
+const zenKaku = Zen_Kaku_Gothic_New({
     subsets: ["latin"],
-    variable: "--font-noto-jp",
-    weight: ["400", "500", "700"],
+    variable: "--font-zen-kaku",
+    weight: ["400", "500", "700", "900"],
     display: "swap",
 });
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://portfolio-site-alpha-gilt.vercel.app/"),
     title: {
-        default: "海音くらげ | Portfolio",
+        default: "海音くらげ | ポートフォリオ",
         template: "%s | 海音くらげ",
     },
     description: "デジタルイラストレーションとコンセプトアートを中心とした制作実績。",
@@ -53,7 +53,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="ja" className={`${inter.variable} ${notoJp.variable}`}>
+        <html lang="ja" className={`${inter.variable} ${zenKaku.variable}`}>
             <body className="antialiased text-foreground bg-background">
                 <div className="flex flex-col min-h-screen">
                     <Header />

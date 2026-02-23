@@ -32,7 +32,7 @@ export default function Header() {
     ];
 
     return (
-        <header className="sticky top-0 z-50 bg-gray-950/90 backdrop-blur-md border-b border-white/10 text-white">
+        <header className="sticky top-0 z-50 bg-deep-sea/90 backdrop-blur-md border-b border-white/10 text-white">
             <div className="container mx-auto px-6 h-20 flex items-center justify-between">
                 <Link href="/" className="group flex items-center gap-2">
                     <span className="text-2xl font-bold tracking-tighter transition-all group-hover:tracking-normal">
@@ -67,7 +67,7 @@ export default function Header() {
 
                 {/* Mobile Navigation Dropdown */}
                 {isOpen && (
-                    <div className="md:hidden absolute top-20 right-6 w-56 bg-zinc-900 border border-white/10 rounded-2xl shadow-2xl overflow-hidden py-2 animate-in fade-in zoom-in duration-200 origin-top-right">
+                    <div className="md:hidden absolute top-20 right-6 w-56 bg-deep-sea border border-white/10 rounded-2xl shadow-2xl overflow-hidden py-2 animate-in fade-in zoom-in duration-200 origin-top-right">
                         <nav>
                             <ul className="flex flex-col">
                                 {navLinks.map((link) => (

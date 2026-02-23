@@ -2,10 +2,10 @@ export default function ContactPage() {
     return (
         <div className="pb-24 lg:pb-32">
             {/* Hero Section */}
-            <div className="bg-gray-950 text-white py-20 lg:py-32 mb-16 lg:mb-24">
+            <div className="bg-deep-sea text-white py-20 lg:py-32 mb-16 lg:mb-24">
                 <div className="container mx-auto px-6">
                     <section className="max-w-3xl">
-                        <h2 className="text-5xl lg:text-7xl font-bold tracking-tighter leading-[1.1] text-white">
+                        <h2 className="text-5xl lg:text-7xl font-black tracking-tighter leading-[1.1] text-white">
                             お問い合わせ
                         </h2>
                         <p className="mt-8 text-lg lg:text-xl text-gray-400 leading-relaxed max-w-2xl">

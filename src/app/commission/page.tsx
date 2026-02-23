@@ -100,12 +100,12 @@ export default async function CommissionPage() {
                 </div>
 
                 {/* CTA Section */}
-                <section className="mt-14 md:mt-20 p-6 md:p-10 lg:p-16 rounded-2xl md:rounded-[2.5rem] bg-zinc-900 text-white text-center flex flex-col items-center overflow-hidden relative group animate-fade-in-up-delay-3">
+                <section className="mt-14 md:mt-20 p-6 md:p-10 lg:p-16 rounded-2xl md:rounded-[2.5rem] bg-deep-sea text-white text-center flex flex-col items-center overflow-hidden relative group animate-fade-in-up-delay-3">
                     {/* Subtle decoration */}
                     <div className="absolute top-0 right-0 w-48 h-48 bg-accent-blue/20 rounded-full blur-3xl -mr-24 -mt-24 transition-transform duration-700 group-hover:scale-110" />
                     <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent-blue/10 rounded-full blur-3xl -ml-24 -mb-24 transition-transform duration-700 group-hover:scale-110" />
 
-                    <h2 className="text-xl md:text-3xl font-bold tracking-tight mb-5 leading-snug relative z-10 text-balance">
+                    <h2 className="text-xl md:text-3xl font-black tracking-tight mb-5 leading-snug relative z-10 text-balance">
                         制作の相談をはじめる
                     </h2>
                     <p className="text-zinc-400 mb-8 max-w-md text-sm font-medium relative z-10 leading-relaxed">

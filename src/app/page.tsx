@@ -6,11 +6,11 @@ export default async function Home() {
 
     return (
         <div className="pb-24 lg:pb-32">
-            {/* Hero Section with High Contrast Dark Background */}
-            <div className="bg-gray-950 text-white py-20 lg:py-32 mb-12 md:mb-16 lg:mb-24">
+            {/* Hero Section with Deep Sea Navy Background */}
+            <div className="bg-deep-sea text-white py-20 lg:py-32 mb-12 md:mb-16 lg:mb-24">
                 <div className="container mx-auto px-6">
                     <section className="max-w-3xl">
-                        <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tighter leading-[1.1] text-white">
+                        <h2 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter leading-[1.1] text-white">
                             イラスト・作品集
                         </h2>
                         <p className="mt-8 text-base lg:text-xl text-gray-400 leading-relaxed max-w-2xl font-medium">

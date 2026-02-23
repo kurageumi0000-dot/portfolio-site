@@ -32,29 +32,29 @@ export default async function WorkPage({ params }: Props) {
                         className="inline-flex items-center text-sm font-medium text-muted hover:text-foreground transition-all gap-2 group mb-12"
                     >
                         <span className="translate-x-0 transition-transform group-hover:-translate-x-1">←</span>
-                        BACK TO WORKS
+                        作品一覧へ戻る
                     </Link>
 
                     <div className="max-w-3xl">
-                        <h1 className="text-4xl lg:text-6xl font-bold tracking-tighter text-gray-900 leading-[1.1] mb-8">
+                        <h1 className="text-4xl lg:text-6xl font-black tracking-tighter text-gray-900 leading-[1.1] mb-8">
                             {work.title}
                         </h1>
 
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 py-8 border-y border-border/60">
                             <div>
-                                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-2">Tools</p>
+                                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-2">使用ツール</p>
                                 <p className="text-sm font-medium text-gray-900">{work.tools || "---"}</p>
                             </div>
                             <div>
-                                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-2">Duration</p>
+                                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-2">制作期間</p>
                                 <p className="text-sm font-medium text-gray-900">{work.duration || "---"}</p>
                             </div>
                             <div>
-                                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-2">Client</p>
+                                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-2">クライアント</p>
                                 <p className="text-sm font-medium text-gray-900">{work.client || "---"}</p>
                             </div>
                             <div>
-                                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-2">Year</p>
+                                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-2">制作年</p>
                                 <p className="text-sm font-medium text-gray-900">
                                     {work.publishedAt ? new Date(work.publishedAt).getFullYear() : "---"}
                                 </p>
@@ -90,9 +90,9 @@ export default async function WorkPage({ params }: Props) {
             <div className="container mx-auto px-6 mt-32 max-w-6xl border-t border-border pt-16 flex justify-center">
                 <Link
                     href="/"
-                    className="px-10 py-4 rounded-full border border-gray-900 text-sm font-bold tracking-widest hover:bg-gray-900 hover:text-white transition-all duration-300"
+                    className="px-10 py-4 rounded-full border border-deep-sea text-sm font-bold tracking-widest hover:bg-deep-sea hover:text-white transition-all duration-300"
                 >
-                    VIEW ALL WORKS
+                    すべての作品を見る
                 </Link>
             </div>
         </article>

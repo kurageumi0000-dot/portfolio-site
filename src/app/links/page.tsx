@@ -6,7 +6,7 @@ export default async function LinksPage() {
     const links = await getLinks();
 
     return (
-        <div className="min-h-screen bg-gray-950 text-white selection:bg-white selection:text-gray-900 font-sans">
+        <div className="min-h-screen bg-deep-sea text-white selection:bg-white selection:text-gray-900 font-sans">
             <div className="container mx-auto px-6 py-16 max-w-xl flex flex-col min-h-screen items-center">
 
                 {/* Profile Section */}

@@ -138,7 +138,7 @@ export default async function AboutPage() {
 
             {/* CTA Section */}
             <section className="container mx-auto px-6 pb-16 md:pb-24 lg:pb-32 relative z-10">
-                <div className="bg-zinc-900 rounded-2xl md:rounded-[2.5rem] p-8 md:p-12 lg:p-20 text-center overflow-hidden relative group animate-fade-in-up-delay-3">
+                <div className="bg-deep-sea rounded-2xl md:rounded-[2.5rem] p-8 md:p-12 lg:p-20 text-center overflow-hidden relative group animate-fade-in-up-delay-3">
                     {/* Subtle decoration */}
                     <div className="absolute top-0 right-0 w-72 h-72 bg-accent-blue/20 rounded-full blur-3xl -mr-36 -mt-36 transition-transform duration-700 group-hover:scale-110" />
                     <div className="absolute bottom-0 left-0 w-72 h-72 bg-accent-blue/10 rounded-full blur-3xl -ml-36 -mb-36 transition-transform duration-700 group-hover:scale-110" />

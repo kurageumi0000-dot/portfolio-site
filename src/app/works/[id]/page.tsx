@@ -59,24 +59,19 @@ export default async function WorkPage({ params }: Props) {
                             </h1>
 
                             {/* Metadata Grid */}
-                            <div className="grid grid-cols-1 md:grid-cols-5 gap-6 py-8 border-y border-slate-100">
-                                <div className="md:col-span-1">
+                            <div className="flex flex-wrap gap-x-12 gap-y-6 py-8 border-y border-slate-100">
+                                <div className="min-w-[120px]">
                                     <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">Client</p>
                                     <p className="text-sm font-bold text-slate-700">{work.client || "---"}</p>
                                 </div>
-                                <div className="hidden md:block w-px h-8 bg-slate-100 self-center" />
-                                <div className="md:col-span-1">
+                                <div className="w-px h-8 bg-slate-100 self-center hidden sm:block" />
+                                <div className="min-w-[120px]">
                                     <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">Date</p>
                                     <p className="text-sm font-bold text-slate-700">
                                         {work.date
-                                            ? new Date(work.date).toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit' }).replace(/\//g, '.')
+                                            ? new Date(work.date).toISOString().slice(0, 7).replace(/-/g, '.')
                                             : "---"}
                                     </p>
-                                </div>
-                                <div className="hidden md:block w-px h-8 bg-slate-100 self-center" />
-                                <div className="md:col-span-1">
-                                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">Role</p>
-                                    <p className="text-sm font-bold text-slate-700">{work.role || "---"}</p>
                                 </div>
                             </div>
                         </header>

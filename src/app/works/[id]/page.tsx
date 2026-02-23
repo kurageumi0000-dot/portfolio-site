@@ -23,16 +23,20 @@ export default async function WorkPage({ params }: Props) {
         notFound();
     }
 
+    const isFanart = work.kind?.includes("fanart");
+    const backLink = isFanart ? "/fanart" : "/";
+    const backLabel = isFanart ? "ファンアート一覧へ戻る" : "作品一覧へ戻る";
+
     return (
         <article className="pb-32 pt-8 lg:pt-16">
             <div className="container mx-auto px-6 max-w-7xl">
                 {/* Back button */}
                 <Link
-                    href="/"
+                    href={backLink}
                     className="inline-flex items-center text-sm font-bold text-slate-400 hover:text-slate-900 transition-all gap-2 group mb-8 lg:mb-12"
                 >
                     <span className="translate-x-0 transition-transform group-hover:-translate-x-1">←</span>
-                    作品一覧へ戻る
+                    {backLabel}
                 </Link>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
@@ -95,10 +99,10 @@ export default async function WorkPage({ params }: Props) {
                         {/* Bottom Navigation (Inside Right Column for Desktop Flow) */}
                         <div className="pt-12 border-t border-slate-100 flex justify-start">
                             <Link
-                                href="/"
+                                href={backLink}
                                 className="px-8 py-4 rounded-full bg-slate-100 text-slate-600 text-sm font-bold tracking-widest hover:bg-accent-blue hover:text-white transition-all duration-300 shadow-sm"
                             >
-                                すべての作品を見る
+                                {backLabel}
                             </Link>
                         </div>
                     </div>

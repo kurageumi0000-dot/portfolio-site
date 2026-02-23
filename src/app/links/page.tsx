@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getLinks } from "@/libs/microcms";
-import { Twitter, Mail, Globe, ExternalLink, ArrowLeft, Instagram } from "lucide-react";
+import { SNSLink } from "@/types/snsLink";
+import { Twitter, Mail, Globe, ExternalLink, ArrowLeft, Instagram, ShoppingCart, PenTool } from "lucide-react";
 
 export default async function LinksPage() {
     const links = await getLinks();

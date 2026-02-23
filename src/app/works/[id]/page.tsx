@@ -68,8 +68,8 @@ export default async function WorkPage({ params }: Props) {
                                 <div className="min-w-[120px]">
                                     <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-2">Date</p>
                                     <p className="text-sm font-bold text-slate-700">
-                                        {work.date
-                                            ? new Date(work.date).toISOString().slice(0, 7).replace(/-/g, '.')
+                                        {(work.date || work.publishedAt)
+                                            ? new Date(work.date || work.publishedAt).toISOString().slice(0, 7).replace(/-/g, '.')
                                             : "---"}
                                     </p>
                                 </div>

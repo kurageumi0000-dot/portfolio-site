@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getLinks } from "@/libs/microcms";
-import { Instagram, Mail, Globe, ExternalLink, ShoppingCart, PenTool } from "lucide-react";
+import { SNSLink } from "@/types/snsLink";
+import { Twitter, Mail, Globe, ExternalLink, ArrowLeft, Instagram, ShoppingCart, PenTool } from "lucide-react";
 
 export default async function Footer() {
     const links = await getLinks();

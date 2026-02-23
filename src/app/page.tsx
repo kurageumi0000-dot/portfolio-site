@@ -3,7 +3,7 @@ import WorkCard from "@/components/WorkCard";
 import { getWorks } from "@/libs/microcms";
 
 export default async function Home() {
-    const works = await getWorks("Original");
+    const works = await getWorks("original");
 
     return (
         <div className="pb-24 lg:pb-32">

@@ -3,7 +3,7 @@ import WorkCard from "@/components/WorkCard";
 import { getWorks } from "@/libs/microcms";
 
 export default async function FanartPage() {
-    const works = await getWorks("Fanart");
+    const works = await getWorks("fanart");
 
     return (
         <div className="pb-24 lg:pb-32">

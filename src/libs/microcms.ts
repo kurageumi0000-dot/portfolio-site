@@ -17,16 +17,18 @@ export const client = createClient({
     apiKey: process.env.MICROCMS_API_KEY,
 });
 
-export const getWorks = async (kind?: "Original" | "Fanart"): Promise<Work[]> => {
+export const getWorks = async (kind?: "original" | "fanart"): Promise<Work[]> => {
     try {
         const queries: any = { orders: "-publishedAt" };
         if (kind) {
-            queries.filters = `kind[equals]${kind}`;
+            // 複数選択（カスタムフィールド等）の場合は[contains]を使用、かつデータ側が小文字のため小文字で検索
+            queries.filters = `kind[contains]${kind}`;
         }
         const data = await client.get({
             endpoint: "works",
             queries: queries,
         });
+
         return data.contents;
     } catch (error) {
         console.error("Failed to fetch works:", error);

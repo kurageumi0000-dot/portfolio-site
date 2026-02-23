@@ -93,11 +93,25 @@ export default async function Home() {
 
                 <div className="container mx-auto px-4 sm:px-6">
                     {works.length > 0 ? (
-                        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12">
-                            {works.map((work) => (
-                                <WorkCard key={work.id} work={work} />
-                            ))}
-                        </div>
+                        <>
+                            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12">
+                                {works.slice(0, 6).map((work) => (
+                                    <WorkCard key={work.id} work={work} />
+                                ))}
+                            </div>
+
+                            {works.length > 6 && (
+                                <div className="mt-20 text-center">
+                                    <Link
+                                        href="/works"
+                                        className="group inline-flex items-center gap-4 px-10 py-5 bg-white border-2 border-slate-900/5 rounded-full text-slate-900 font-black text-sm tracking-widest hover:border-accent-blue hover:text-accent-blue transition-all duration-300"
+                                    >
+                                        すべての実績を見る
+                                        <span className="w-8 h-[2px] bg-slate-400 group-hover:bg-accent-blue transition-all group-hover:w-16" />
+                                    </Link>
+                                </div>
+                            )}
+                        </>
                     ) : (
                         <div className="flex flex-col items-center justify-center py-32 border border-dashed rounded-[3rem] border-slate-200">
                             <p className="text-slate-400 text-lg font-medium">作品が見つかりませんでした。</p>
